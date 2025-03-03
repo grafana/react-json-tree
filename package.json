@@ -1,6 +1,6 @@
 {
   "name": "react-json-tree",
-  "version": "0.20.0",
+  "version": "0.30.0",
   "description": "React JSON Viewer Component, Extracted from redux-devtools",
   "keywords": [
     "react",
@@ -26,45 +26,49 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "type": "module",
-  "sideEffects": false,
+  "sideEffects":  ["*.css", "*.scss"],
   "repository": {
     "type": "git",
     "url": "https://github.com/gtk-grafana/react-json-tree.git"
   },
   "scripts": {
+    "dev": "tsc -w & pnpm run sass-dev",
     "build": "tsc",
     "clean": "rimraf lib",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "lint": "eslint .",
     "type-check": "tsc --noEmit",
-    "prepack": "pnpm run clean && pnpm run build",
-    "prepublish": "pnpm run lint && pnpm run test"
-  },
-  "dependencies": {
-    "@types/lodash": "^4.17.15",
-    "react-base16-styling": "^0.10.0"
+    "prepack": "pnpm run clean && pnpm run build && pnpm run sass-prod && pnpm prune --prod",
+    "prepublish": "pnpm run lint && pnpm run test",
+    "sass-dev": "sass --watch --update --style=expanded src/styles:lib/css",
+    "sass-prod": "sass --no-source-map --style=compressed src/styles:lib/css"
   },
   "devDependencies": {
+    "@babel/core": "^7.26.9",
+    "@changesets/cli": "^2.28.1",
     "@eslint/compat": "^1.2.7",
     "@eslint/js": "^9.21.0",
     "@types/jest": "^29.5.14",
     "@types/react": "^18.3.18",
     "@types/react-test-renderer": "^18.3.1",
+    "@types/sass": "^1.45.0",
+    "eslint": "^9.21.0",
     "eslint-config-prettier": "^10.0.2",
     "eslint-plugin-jest": "^28.11.0",
     "eslint-plugin-react": "^7.37.4",
     "eslint-plugin-react-hooks": "^5.2.0",
     "jest": "^29.7.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "3.5.2",
     "react": "^18.3.1",
     "react-test-renderer": "^18.3.1",
     "rimraf": "^6.0.1",
+    "sass": "^1.85.1",
+    "stylelint": "^16.15.0",
+    "stylelint-config-standard": "^37.0.0",
     "ts-jest": "^29.2.6",
     "typescript": "~5.7.3",
-    "typescript-eslint": "^8.25.0",
-    "@babel/core": "^7.26.9",
-    "@changesets/cli": "^2.28.1",
-    "eslint": "^9.21.0",
-    "prettier": "3.5.2"
+    "typescript-eslint": "^8.25.0"
   },
   "peerDependencies": {
     "@types/react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0",

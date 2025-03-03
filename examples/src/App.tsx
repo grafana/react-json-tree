@@ -1,21 +1,6 @@
 import React from 'react';
 import { Map } from 'immutable';
-import { JSONTree, StylingValue } from 'react-json-tree';
-
-const getLabelStyle: StylingValue = ({ style }, nodeType, expanded) => ({
-  style: {
-    ...style,
-    textTransform: expanded ? 'uppercase' : style!.textTransform,
-  },
-});
-
-const getBoolStyle: StylingValue = ({ style }, nodeType) => ({
-  style: {
-    ...style,
-    border: nodeType === 'Boolean' ? '1px solid #DD3333' : style!.border,
-    borderRadius: nodeType === 'Boolean' ? 3 : style!.borderRadius,
-  },
-});
+import { JSONTree } from 'react-json-tree';
 
 const getItemString = (type: string) => (
   <span>
@@ -23,17 +8,6 @@ const getItemString = (type: string) => (
     {type}
   </span>
 );
-
-const getValueLabelStyle: StylingValue = ({ style }, nodeType, keyPath) => ({
-  style: {
-    ...style,
-    color:
-      !Number.isNaN((keyPath as unknown[])[0]) &&
-      !(parseInt(keyPath as string, 10) % 2)
-        ? '#33F'
-        : style!.color,
-  },
-});
 
 const longString =
   'Loremipsumdolorsitamet,consecteturadipiscingelit.Namtempusipsumutfelisdignissimauctor.Maecenasodiolectus,finibusegetultricesvel,aliquamutelit.Loremipsumdolorsitamet,consecteturadipiscingelit.Namtempusipsumutfelisdignissimauctor.Maecenasodiolectus,finibusegetultricesvel,aliquamutelit.Loremipsumdolorsitamet,consecteturadipiscingelit.Namtempusipsumutfelisdignissimauctor.Maecenasodiolectus,finibusegetultricesvel,aliquamutelit.'; // eslint-disable-line max-len
@@ -104,42 +78,13 @@ const data = {
   longString,
 };
 
-const theme = {
-  scheme: 'monokai',
-  author: 'wimer hazenberg (http://www.monokai.nl)',
-  base00: '#272822',
-  base01: '#383830',
-  base02: '#49483e',
-  base03: '#75715e',
-  base04: '#a59f85',
-  base05: '#f8f8f2',
-  base06: '#f5f4f1',
-  base07: '#f9f8f5',
-  base08: '#f92672',
-  base09: '#fd971f',
-  base0A: '#f4bf75',
-  base0B: '#a6e22e',
-  base0C: '#a1efe4',
-  base0D: '#66d9ef',
-  base0E: '#ae81ff',
-  base0F: '#cc6633',
-};
-
 const App = () => (
   <div>
-    <JSONTree data={data} theme={theme} invertTheme />
+    <JSONTree data={data} />
     <br />
     <h3>Dark Theme</h3>
-    <JSONTree data={data} theme={theme} invertTheme={false} />
-    <br />
-    <h3>Hidden Root</h3>
-    <JSONTree data={data} theme={theme} hideRoot />
-    <br />
-    <h3>Base16 Greenscreen Theme</h3>
-    <JSONTree data={data} theme="greenscreen" invertTheme={false} />
-    <h4>Inverted Theme</h4>
-    <JSONTree data={data} theme="greenscreen" invertTheme />
-    <br />
+    <JSONTree data={data} />
+
     <h3>Style Customization</h3>
     <ul>
       <li>
@@ -155,12 +100,6 @@ const App = () => (
     <div>
       <JSONTree
         data={data}
-        theme={{
-          extend: theme,
-          nestedNodeLabel: getLabelStyle,
-          value: getBoolStyle,
-          valueLabel: getValueLabelStyle,
-        }}
         getItemString={getItemString}
       />
     </div>
@@ -171,7 +110,6 @@ const App = () => (
     <div>
       <JSONTree
         data={data}
-        theme={theme}
         labelRenderer={([raw]) => <span>(({raw})):</span>}
         valueRenderer={(raw) => (
           <em>
@@ -190,13 +128,12 @@ const App = () => (
       Sort object keys with <code>sortObjectKeys</code> prop.
     </p>
     <div>
-      <JSONTree data={data} theme={theme} sortObjectKeys />
+      <JSONTree data={data} sortObjectKeys />
     </div>
     <p>Collapsed root node</p>
     <div>
       <JSONTree
         data={data}
-        theme={theme}
         shouldExpandNodeInitially={() => false}
       />
     </div>

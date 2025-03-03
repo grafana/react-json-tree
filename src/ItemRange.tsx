@@ -13,7 +13,7 @@ interface Props extends CommonInternalProps {
 }
 
 export default function ItemRange(props: Props) {
-  const { styling, from, to, renderChildNodes, nodeType } = props;
+  const { from, to, renderChildNodes, nodeType } = props;
 
   const [expanded, setExpanded] = useState<boolean>(false);
   const handleClick = useCallback(() => {
@@ -21,14 +21,13 @@ export default function ItemRange(props: Props) {
   }, [expanded]);
 
   return expanded ? (
-    <div {...styling('itemRange', expanded)}>
+    <div className={`itemRange itemRange--${expanded}`}>
       {renderChildNodes(props, from, to)}
     </div>
   ) : (
-    <div {...styling('itemRange', expanded)} onClick={handleClick}>
+    <div className={`itemRange itemRange--${expanded}`} onClick={handleClick}>
       <JSONArrow
         nodeType={nodeType}
-        styling={styling}
         expanded={false}
         onClick={handleClick}
         arrowStyle="double"

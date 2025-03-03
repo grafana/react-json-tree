@@ -1,5 +1,4 @@
 import React from 'react';
-import { StylingFunction } from 'react-base16-styling';
 
 export type Key = string | number;
 
@@ -38,8 +37,6 @@ export type IsCustomNode = (value: unknown) => boolean;
 
 export type SortObjectKeys = ((a: unknown, b: unknown) => number) | boolean;
 
-export type Styling = StylingFunction;
-
 export type CircularCache = unknown[];
 
 export interface CommonExternalProps {
@@ -56,7 +53,6 @@ export interface CommonExternalProps {
 }
 
 export interface CommonInternalProps extends CommonExternalProps {
-  styling: StylingFunction;
   circularCache?: CircularCache;
   level?: number;
   isCircular?: boolean;

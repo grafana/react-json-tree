@@ -110,7 +110,6 @@ export default function JSONNestedNode(props: Props) {
     nodeType,
     nodeTypeIndicator,
     shouldExpandNodeInitially,
-    styling,
   } = props;
 
   const [expanded, setExpanded] = useState<boolean>(
@@ -128,7 +127,7 @@ export default function JSONNestedNode(props: Props) {
       : null;
 
   const itemType = (
-    <span {...styling('nestedNodeItemType', expanded)}>
+    <span className={`nestedNodeItemType nestedNodeItemType--expanded-${expanded}`}>
       {nodeTypeIndicator}
     </span>
   );
@@ -142,34 +141,35 @@ export default function JSONNestedNode(props: Props) {
   const stylingArgs = [keyPath, nodeType, expanded, expandable] as const;
 
   return hideRoot ? (
-    <li {...styling('rootNode', ...stylingArgs)}>
-      <ul {...styling('rootNodeChildren', ...stylingArgs)}>
+    <li className={`rootNode rootNode--keypath-${keyPath[0]} rootNode--nodetype-${nodeType} rootNode--expanded-${expanded} rootNode--expandable-${expandable}`}>
+      <ul className={`rootNodeChildren rootNodeChildren--keypath-${keyPath[0]} rootNodeChildren--nodetype-${nodeType} rootNodeChildren--expanded-${expanded} rootNodeChildren--expandable-${expandable}`}>
         {renderedChildren}
       </ul>
     </li>
   ) : (
-    <li {...styling('nestedNode', ...stylingArgs)}>
+    <li className={`nestedNode nestedNode--keypath-${keyPath[0]} nestedNode--nodetype-${nodeType} nestedNode--expanded-${expanded} nestedNode--expandable-${expandable}`}>
       {expandable && (
         <JSONArrow
-          styling={styling}
           nodeType={nodeType}
           expanded={expanded}
           onClick={handleClick}
         />
       )}
-      <label
-        {...styling(['label', 'nestedNodeLabel'], ...stylingArgs)}
+      <span
+          className={`nestedNodeLabel nestedNodeLabel--keypath-${keyPath[0]} nestedNodeLabel--nodetype-${nodeType} nestedNodeLabel--expanded-${expanded} nestedNodeLabel--expandable-${expandable}`}
         onClick={handleClick}
       >
         {labelRenderer(...stylingArgs)}
-      </label>
+      </span>
       <span
-        {...styling('nestedNodeItemString', ...stylingArgs)}
-        onClick={handleClick}
+          className={`nestedNodeItemString nestedNodeItemString--keypath-${keyPath[0]} nestedNodeItemString--nodetype-${nodeType} nestedNodeItemString--expanded-${expanded} nestedNodeItemString--expandable-${expandable}`}
+          onClick={handleClick}
       >
         {renderedItemString}
       </span>
-      <ul {...styling('nestedNodeChildren', ...stylingArgs)}>
+      <ul
+          className={`nestedNodeChildren nestedNodeChildren--keypath-${keyPath[0]} nestedNodeChildren--nodetype-${nodeType} nestedNodeChildren--expanded-${expanded} nestedNodeChildren--expandable-${expandable}`}
+          >
         {renderedChildren}
       </ul>
     </li>

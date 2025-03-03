@@ -3,11 +3,8 @@
 // Dave Vedder <veddermatic@gmail.com> http://www.eskimospy.com/
 // port by Daniele Zannotti http://www.github.com/dzannotti <dzannotti@me.com>
 
-import React, { useMemo } from 'react';
-import { invertTheme } from 'react-base16-styling';
-import type { StylingValue, Theme } from 'react-base16-styling';
+import React from 'react';
 import JSONNode from './JSONNode.js';
-import createStylingFromTheme from './createStylingFromTheme.js';
 import type {
   CommonExternalProps,
   GetItemString,
@@ -18,8 +15,6 @@ import type {
 
 interface Props extends Partial<CommonExternalProps> {
   data: unknown;
-  theme?: Theme;
-  invertTheme?: boolean;
 }
 
 const identity = (value: any) => value;
@@ -35,8 +30,6 @@ const noCustomNode: IsCustomNode = () => false;
 
 export function JSONTree({
   data: value,
-  theme,
-  invertTheme: shouldInvertTheme,
   keyPath = ['root'],
   labelRenderer = defaultLabelRenderer,
   valueRenderer = identity,
@@ -48,19 +41,14 @@ export function JSONTree({
   collectionLimit = 50,
   sortObjectKeys = false,
 }: Props) {
-  const styling = useMemo(
-    () =>
-      createStylingFromTheme(shouldInvertTheme ? invertTheme(theme) : theme),
-    [theme, shouldInvertTheme],
-  );
+  console.log('hellloo world??')
 
   return (
-    <ul {...styling('tree')}>
+     <ul className={'tree'}>
       <JSONNode
         keyPath={hideRoot ? [] : keyPath}
         value={postprocessValue(value)}
         isCustomNode={isCustomNode}
-        styling={styling}
         labelRenderer={labelRenderer}
         valueRenderer={valueRenderer}
         shouldExpandNodeInitially={shouldExpandNodeInitially}
@@ -84,7 +72,5 @@ export type {
   PostprocessValue,
   IsCustomNode,
   SortObjectKeys,
-  Styling,
   CommonExternalProps,
 } from './types.js';
-export type { StylingValue };

@@ -14,7 +14,6 @@ export default function JSONNode({
   getItemString,
   keyPath,
   labelRenderer,
-  styling,
   value,
   valueRenderer,
   isCustomNode,
@@ -28,7 +27,6 @@ export default function JSONNode({
     keyPath,
     labelRenderer,
     nodeType,
-    styling,
     value,
     valueRenderer,
   };

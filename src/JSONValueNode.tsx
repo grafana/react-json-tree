@@ -4,7 +4,6 @@ import type {
   Key,
   KeyPath,
   LabelRenderer,
-  Styling,
   ValueRenderer,
 } from './types.js';
 
@@ -18,7 +17,6 @@ interface Props {
   keyPath: KeyPath;
   labelRenderer: LabelRenderer;
   nodeType: string;
-  styling: Styling;
   value: unknown;
   valueRenderer: ValueRenderer;
   valueGetter?: (value: any) => unknown;
@@ -26,7 +24,6 @@ interface Props {
 
 export default function JSONValueNode({
   nodeType,
-  styling,
   labelRenderer,
   keyPath,
   valueRenderer,
@@ -34,12 +31,12 @@ export default function JSONValueNode({
   valueGetter = (value) => value,
 }: Props) {
   return (
-    <li {...styling('value', nodeType, keyPath)}>
-      <label {...styling(['label', 'valueLabel'], nodeType, keyPath)}>
+    <li className={`value value--${nodeType} value--${keyPath}`}>
+      <span className={`label valueLabel valueLabel---node-type-${nodeType} valueLabel--key-path-${keyPath}`}>
         {labelRenderer(keyPath, nodeType, false, false)}
-      </label>
-      <span {...styling('valueText', nodeType, keyPath)}>
-        {valueRenderer(valueGetter(value), value, ...keyPath)}
+      </span>
+      <span className={`valueText valueText--node-type-${nodeType} valueText--key-path-${keyPath}`}>
+        {valueRenderer(valueGetter ? valueGetter(value) : undefined, value, ...keyPath)}
       </span>
     </li>
   );
