@@ -1,5 +1,5 @@
-import eslintJs from '../../../eslint.js.config.base.mjs';
-import eslintTs from '../../../eslint.ts.react.config.base.mjs';
+import eslintJs from '.config/eslint.js.config.base.mjs';
+import eslintTs from '.config/eslint.ts.react.config.base.mjs';
 
 export default [
   ...eslintJs,
@@ -7,7 +7,7 @@ export default [
   ...eslintTs(
     import.meta.dirname,
     ['webpack.config.ts'],
-    ['./tsconfig.webpack.json'],
+    ['tsconfig.webpack.json'],
   ),
   {
     ignores: ['dist'],

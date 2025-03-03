@@ -1,4 +1,4 @@
-module.exports = {
+const config = {
   extensionsToTreatAsEsm: ['.ts', '.tsx'],
   moduleNameMapper: {
     '^(\\.{1,2}/.*)\\.js$': '$1',
@@ -10,3 +10,5 @@ module.exports = {
     ],
   },
 };
+
+export default config;
