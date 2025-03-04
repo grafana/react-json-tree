@@ -19,7 +19,20 @@ export default defineConfig({
       tsconfigPath: 'tsconfig.app.json',
     }),
   ],
+  optimizeDeps: {
+    include: ['**/*.scss'], // Include all .scss files
+  },
+  css: {
+    preprocessorOptions: {
+     scss: true,
+    },
+    modules: {
+      // Enable CSS Modules for all .scss files
+      localsConvention: 'camelCaseOnly',
+    },
+  },
   build: {
+    sourcemap: 'inline',
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
       formats: ['es'],
@@ -46,8 +59,8 @@ export default defineConfig({
         assetFileNames: 'assets/[name][extname]',
         globals: {
           react: 'React',
-          'react-dom': 'React-dom',
-          'react/jsx-runtime': 'react/jsx-runtime',
+          'react-dom': 'ReactDom',
+          'react/jsx-runtime': 'ReactJsxRuntime',
         },
       },
     },

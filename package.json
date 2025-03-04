@@ -1,6 +1,24 @@
 {
-  "name": "react-vite-component-template",
-  "version": "0.0.0",
+  "name": "react-json-tree",
+  "version": "1.0.1",
+  "description": "React JSON Viewer Component, Extracted from redux-devtools",
+  "keywords": [
+    "react",
+    "json viewer"
+  ],
+  "homepage": "https://github.com/gtk-grafana/react-json-tree",
+  "bugs": {
+    "url": "https://github.com/gtk-grafana/react-json-tree/issues"
+  },
+  "license": "MIT",
+  "author": "Shu Uesugi <shu@chibicode.com> (http://github.com/chibicode)",
+  "contributors": [
+    "Alexander Kuznetsov <alexkuz@gmail.com> (http://kuzya.org/)",
+    "Dave Vedder <veddermatic@gmail.com> (http://www.eskimospy.com/)",
+    "Daniele Zannotti <dzannotti@me.com> (http://www.github.com/dzannotti)",
+    "Mihail Diordiev <zalmoxisus@gmail.com> (https://github.com/zalmoxisus)",
+    "Galen Kistler <galen.kistler@grafana.com (https://github.com/gtk-grafana)>"
+  ],
   "type": "module",
   "scripts": {
     "build": "tsc && vite build",
@@ -57,6 +75,7 @@
     "jsdom": "26.0.0",
     "prettier": "3.5.2",
     "react-test-renderer": "^19.0.0",
+    "sass-embedded": "^1.85.1",
     "storybook": "8.6.3",
     "stylelint": "16.15.0",
     "stylelint-config-standard": "37.0.0",

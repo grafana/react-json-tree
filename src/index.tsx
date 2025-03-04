@@ -2,8 +2,6 @@
 // all credits and original code to the author
 // Dave Vedder <veddermatic@gmail.com> http://www.eskimospy.com/
 // port by Daniele Zannotti http://www.github.com/dzannotti <dzannotti@me.com>
-
-import React from 'react';
 import JSONNode from './JSONNode.js';
 import type {
   CommonExternalProps,
@@ -12,6 +10,8 @@ import type {
   LabelRenderer,
   ShouldExpandNodeInitially,
 } from './types.js';
+
+import styles from "./styles/tree.module.scss"
 
 interface Props extends Partial<CommonExternalProps> {
   data: unknown;
@@ -41,10 +41,10 @@ export function JSONTree({
   collectionLimit = 50,
   sortObjectKeys = false,
 }: Props) {
-  console.log('hellloo world??')
+  console.log('hellloo world??????')
 
   return (
-     <ul role={'group'} className={'tree'}>
+     <ul role={'group'} className={styles.tree}>
       <JSONNode
         keyPath={hideRoot ? [] : keyPath}
         value={postprocessValue(value)}
