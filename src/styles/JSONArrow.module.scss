@@ -1,0 +1,10 @@
+.arrow{
+  &__container{}
+  &--node-type{}
+  &--expanded{}
+  &--arrow-style{
+    &--single{}
+    &--double{}
+  }
+  &__inner{}
+}

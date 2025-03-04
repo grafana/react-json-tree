@@ -1,4 +1,3 @@
-import React from 'react';
 import type {
   GetItemString,
   Key,
@@ -6,6 +5,7 @@ import type {
   LabelRenderer,
   ValueRenderer,
 } from './types.js';
+import styles from "./styles/JSONValueNode.module.scss"
 
 /**
  * Renders simple values (eg. strings, numbers, booleans, etc)
@@ -31,11 +31,11 @@ export default function JSONValueNode({
   valueGetter = (value) => value,
 }: Props) {
   return (
-    <li className={`value value--${nodeType} value--${keyPath}`}>
-      <span className={`label valueLabel valueLabel---node-type-${nodeType} valueLabel--key-path-${keyPath}`}>
+    <li className={`${styles.valueNode} valueNode--${nodeType} valueNode--${keyPath}`}>
+      <span className={styles.valueNode__label}>
         {labelRenderer(keyPath, nodeType, false, false)}
       </span>
-      <span className={`valueText valueText--node-type-${nodeType} valueText--key-path-${keyPath}`}>
+      <span className={styles.valueNode__value}>
         {valueRenderer(valueGetter ? valueGetter(value) : undefined, value, ...keyPath)}
       </span>
     </li>

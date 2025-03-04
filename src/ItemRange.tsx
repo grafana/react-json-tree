@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import JSONArrow from './JSONArrow.js';
 import type { CircularCache, CommonInternalProps } from './types.js';
+import styles from './styles/itemRange.module.scss'
 
 interface Props extends CommonInternalProps {
   data: unknown;
@@ -21,11 +22,11 @@ export default function ItemRange(props: Props) {
   }, [expanded]);
 
   return expanded ? (
-    <div className={`itemRange itemRange--${expanded}`}>
+    <div className={`${styles.itemRange} ${expanded ? styles.itemRangeExpanded : ''}`}>
       {renderChildNodes(props, from, to)}
     </div>
   ) : (
-    <div className={`itemRange itemRange--${expanded}`} onClick={handleClick}>
+    <div className={`${styles.itemRange} ${expanded ? styles.itemRangeExpanded : ''}`}>
       <JSONArrow
         nodeType={nodeType}
         expanded={false}

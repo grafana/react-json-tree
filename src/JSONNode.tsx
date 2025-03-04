@@ -1,4 +1,3 @@
-import React from 'react';
 import objType from './objType.js';
 import JSONObjectNode from './JSONObjectNode.js';
 import JSONArrayNode from './JSONArrayNode.js';

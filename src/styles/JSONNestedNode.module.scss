@@ -1,0 +1,10 @@
+.nestedNode{
+  &--expanded{}
+  &--expandable{}
+  &--itemType{
+    &--expanded{}
+  }
+
+  &__itemString{}
+  &__children{}
+}
