@@ -44,7 +44,7 @@ export function JSONTree({
   console.log('hellloo world??')
 
   return (
-     <ul className={'tree'}>
+     <ul role={'group'} className={'tree'}>
       <JSONNode
         keyPath={hideRoot ? [] : keyPath}
         value={postprocessValue(value)}
