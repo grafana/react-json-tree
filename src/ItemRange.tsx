@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
-import JSONArrow from './JSONArrow.js';
-import type { CircularCache, CommonInternalProps } from './types.js';
+import JSONArrow from './JSONArrow';
+import type { CircularCache, CommonInternalProps } from './types';
 
 interface Props extends CommonInternalProps {
   data: unknown;

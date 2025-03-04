@@ -4,7 +4,7 @@
 // port by Daniele Zannotti http://www.github.com/dzannotti <dzannotti@me.com>
 
 import React from 'react';
-import JSONNode from './JSONNode.js';
+import JSONNode from './JSONNode';
 import type {
   CommonExternalProps,
   GetItemString,
@@ -12,7 +12,7 @@ import type {
   LabelRenderer,
   ShouldExpandNodeInitially,
 } from './types.js';
-import styles from "styles/index.module.scss"
+// import styles from "styles/index.module.scss"
 
 interface Props extends Partial<CommonExternalProps> {
   data: unknown;
@@ -45,7 +45,7 @@ export function JSONTree({
   console.log('hellloo world??')
 
   return (
-     <ul className={styles.tree}>
+     <ul className={'styles.tree'}>
       <JSONNode
         keyPath={hideRoot ? [] : keyPath}
         value={postprocessValue(value)}

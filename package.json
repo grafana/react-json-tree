@@ -35,8 +35,8 @@
     "url": "https://github.com/gtk-grafana/react-json-tree.git"
   },
   "scripts": {
-    "dev": "tsc -w & pnpm run sass-dev",
-    "build": "tsc",
+    "start": "webpack serve --open",
+    "build": "webpack --mode production",
     "clean": "rimraf lib",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "lint": "eslint .",

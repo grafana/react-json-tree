@@ -2,7 +2,7 @@ import React from 'react';
 import TestRenderer from 'react-test-renderer/shallow';
 
 import { JSONTree } from '../src';
-import JSONNode from '../src/JSONNode.js';
+import JSONNode from '../src/JSONNode';
 
 const BASIC_DATA = { a: 1, b: 'c' };
 

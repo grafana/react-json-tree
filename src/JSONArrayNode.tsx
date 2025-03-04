@@ -1,6 +1,6 @@
 import React from 'react';
-import JSONNestedNode from './JSONNestedNode.js';
-import type { CommonInternalProps } from './types.js';
+import JSONNestedNode from './JSONNestedNode';
+import type { CommonInternalProps } from './types';
 
 // Returns the "n Items" string for this node,
 // generating and caching it if it hasn't been created yet.
