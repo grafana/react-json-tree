@@ -27,6 +27,7 @@ function getEntries(
     let keys = Object.getOwnPropertyNames(collection);
 
     if (sortObjectKeys) {
+      //@ts-ignore
       keys.sort(sortObjectKeys === true ? undefined : sortObjectKeys);
     }
 
@@ -56,8 +57,10 @@ function getEntries(
       if (from <= idx) {
         if (isMap && Array.isArray(item)) {
           if (typeof item[0] === 'string' || typeof item[0] === 'number') {
+            //@ts-ignore
             entries.push({ key: item[0], value: item[1] });
           } else {
+            //@ts-ignore
             entries.push({
               key: `[entry ${idx}]`,
               value: {
@@ -67,6 +70,7 @@ function getEntries(
             });
           }
         } else {
+          //@ts-ignore
           entries.push({ key: idx, value: item });
         }
       }
@@ -88,6 +92,7 @@ function getRanges(from: number, to: number, limit: number) {
     limit = limit * limit;
   }
   for (let i = from; i <= to; i += limit) {
+    //@ts-ignore
     ranges.push({ from: i, to: Math.min(to, i + limit - 1) });
   }
 

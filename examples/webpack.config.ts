@@ -12,7 +12,7 @@ const config: webpack.Configuration = {
     static: './dist',
   },
   plugins: [
-    new BundleAnalyzerPlugin.BundleAnalyzerPlugin(),
+    // new BundleAnalyzerPlugin.BundleAnalyzerPlugin(),
     new HtmlWebpackPlugin({
       template: './index.html',
     }),
