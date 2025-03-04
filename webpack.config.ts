@@ -2,7 +2,8 @@ import * as path from 'path';
 import * as webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
-import BundleAnalyzerPlugin from 'webpack-bundle-analyzer';
+// import BundleAnalyzerPlugin from 'webpack-bundle-analyzer';
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const config: webpack.Configuration = {
   mode: 'development',
@@ -12,7 +13,7 @@ const config: webpack.Configuration = {
     static: './dist',
   },
   plugins: [
-    new BundleAnalyzerPlugin.BundleAnalyzerPlugin(),
+    // new BundleAnalyzerPlugin.BundleAnalyzerPlugin(),
     new HtmlWebpackPlugin({
       template: './index.html',
     }),

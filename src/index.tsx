@@ -12,6 +12,7 @@ import type {
   LabelRenderer,
   ShouldExpandNodeInitially,
 } from './types.js';
+import styles from "styles/index.module.scss"
 
 interface Props extends Partial<CommonExternalProps> {
   data: unknown;
@@ -44,7 +45,7 @@ export function JSONTree({
   console.log('hellloo world??')
 
   return (
-     <ul className={'tree'}>
+     <ul className={styles.tree}>
       <JSONNode
         keyPath={hideRoot ? [] : keyPath}
         value={postprocessValue(value)}
