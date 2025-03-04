@@ -24,7 +24,8 @@
     "jsx": "react-jsx",
     "paths": {
       "@root/*": ["./src/*"]
-    }
+    },
+    "outDir": "lib"
   },
   "ts-node": {
     "compilerOptions": {

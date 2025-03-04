@@ -46,19 +46,9 @@ export function JSONTree({
 
   return (
      <ul className={'styles.tree'}>
-      <JSONNode
-        keyPath={hideRoot ? [] : keyPath}
-        value={postprocessValue(value)}
-        isCustomNode={isCustomNode}
-        labelRenderer={labelRenderer}
-        valueRenderer={valueRenderer}
-        shouldExpandNodeInitially={shouldExpandNodeInitially}
-        hideRoot={hideRoot}
-        getItemString={getItemString}
-        postprocessValue={postprocessValue}
-        collectionLimit={collectionLimit}
-        sortObjectKeys={sortObjectKeys}
-      />
+      <div>
+        Hello world!
+      </div>
     </ul>
   );
 }
