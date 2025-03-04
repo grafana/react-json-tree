@@ -1,12 +1,11 @@
 import * as path from 'path';
-import * as webpack from 'webpack';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+// import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 // import BundleAnalyzerPlugin from 'webpack-bundle-analyzer';
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
-const config: webpack.Configuration = {
+const config = {
   mode: 'development',
+
   entry: './src/index.tsx',
   devtool: 'eval-source-map',
   devServer: {
@@ -14,15 +13,11 @@ const config: webpack.Configuration = {
   },
   plugins: [
     // new BundleAnalyzerPlugin.BundleAnalyzerPlugin(),
-    new HtmlWebpackPlugin({
-      template: './index.html',
-    }),
-    new ForkTsCheckerWebpackPlugin(),
+    // new ForkTsCheckerWebpackPlugin(),
   ],
   output: {
     filename: 'bundle.js',
-    path: path.resolve(process.cwd(), 'dist'),
-    clean: true,
+    path: path.resolve(__dirname, 'dist'),
   },
   module: {
     rules: [

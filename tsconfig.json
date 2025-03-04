@@ -1,7 +1,8 @@
 {
   "extends": "./.config/tsconfig.esm.react.base.json",
   "compilerOptions": {
-    "outDir": "lib"
+    "outDir": "lib",
+    "moduleResolution": "Node16"
   },
   "include": ["src"]
 }
