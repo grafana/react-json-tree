@@ -2,8 +2,6 @@
 
 React JSON Viewer Component, Extracted from [redux-devtools](https://github.com/reduxjs/redux-devtools). Supports [iterable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#iterable) objects, such as [Immutable.js](https://facebook.github.io/immutable-js/).
 
-![](https://img.shields.io/npm/v/react-json-tree.svg)
-
 ### Usage
 
 ```jsx
