@@ -12,14 +12,14 @@ yarn link
 
 And in this package, run 
 ```
-npm link react
+yarn link react
 ```
 
 Then start and install the examples:
 
 ```
-npm install
-npm start
+yarn install
+yarn start
 ```
 
 Now edit `src/App.js`.  

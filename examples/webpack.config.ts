@@ -3,15 +3,11 @@ import * as webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 // import BundleAnalyzerPlugin from 'webpack-bundle-analyzer';
-// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const config: webpack.Configuration = {
   mode: 'development',
   entry: './src/index.tsx',
   devtool: 'eval-source-map',
-  devServer: {
-    static: './dist',
-  },
   plugins: [
     // new BundleAnalyzerPlugin.BundleAnalyzerPlugin(),
     new HtmlWebpackPlugin({

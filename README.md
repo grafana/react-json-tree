@@ -24,19 +24,10 @@ const json = {
 <JSONTree data={json} />;
 ```
 
-#### Result:
-
-![](https://i.ibb.co/0KSYRJg/example-result.png)
-
-Check out [examples](examples) directory for more details.
-
 ### Theming
 
-Style with CSS. @todo base styles
+TODO/In progress. All base styles are a single css class of specificity, and can be overwritten in the consuming application.
 
-<div>
-  <JSONTree data={data} />
-</div>;
 ```
 
 #### Advanced Customization
@@ -110,7 +101,7 @@ Their full signatures are:
 - Improved and maintained by [Alexander Kuznetsov](https://github.com/alexkuz). The repository was merged into [`redux-devtools` monorepo](https://github.com/reduxjs/redux-devtools) from [`alexkuz/react-json-tree`](https://github.com/alexkuz/react-json-tree).
 
 ### Similar Libraries
-
+- [original react-json-tree](https://github.com/reduxjs/redux-devtools/tree/main/packages/react-json-tree)
 - [react-treeview](https://github.com/chenglou/react-treeview)
 - [react-json-inspector](https://github.com/Lapple/react-json-inspector)
 - [react-object-inspector](https://github.com/xyc/react-object-inspector)
