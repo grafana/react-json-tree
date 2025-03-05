@@ -15,7 +15,7 @@ export default defineConfig({
     // https://github.com/vitejs/vite/issues/1579#issuecomment-1483756199
     libInjectCss(),
     dts({
-      exclude: ['**/*.stories.tsx', 'src/test', '**/*.test.tsx'],
+      exclude: ['src/test', '**/*.test.tsx'],
       tsconfigPath: 'tsconfig.app.json',
     }),
   ],

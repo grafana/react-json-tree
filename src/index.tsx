@@ -11,6 +11,8 @@ import type {
   ShouldExpandNodeInitially,
 } from './types.js';
 
+import p from "./../package.json"
+
 import styles from "./styles/tree.module.scss"
 
 interface Props extends Partial<CommonExternalProps> {
@@ -20,8 +22,8 @@ interface Props extends Partial<CommonExternalProps> {
 const identity = (value: any) => value;
 const expandRootNode: ShouldExpandNodeInitially = (keyPath, data, level) =>
   level === 0;
-const defaultItemString: GetItemString = (type, data, itemType, itemString) => (
-  <span>
+const defaultItemString: GetItemString = (type, data, itemType, itemString, keyPath) => (
+  <span className={styles.defaultItemString}>
     {itemType} {itemString}
   </span>
 );
@@ -41,8 +43,10 @@ export function JSONTree({
   collectionLimit = 50,
   sortObjectKeys = false,
 }: Props) {
-  console.log('hellloo world??????')
 
+
+  console.log('test 5')
+  console.log('version', p.version)
   return (
      <ul role={'group'} className={styles.tree}>
       <JSONNode

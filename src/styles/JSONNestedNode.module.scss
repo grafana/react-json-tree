@@ -1,10 +1,43 @@
 .nestedNode{
-  &--expanded{}
-  &--expandable{}
+  display: inherit;
+  margin-left: 1.5em;
+
+  &--expanded{
+    display: inherit;
+  }
+  &--expandable{
+    display: inherit;
+  }
   &--itemType{
-    &--expanded{}
+    display: inherit;
+    &--expanded{
+      display: inherit;
+    }
   }
 
-  &__itemString{}
-  &__children{}
+  &__label{
+    display: inline-flex;
+  }
+
+  &__itemString{
+    display: inherit;
+  }
+  &__children{
+    display: inherit;
+  }
+}
+
+.rootNode{
+  display: inherit;
+  &--expanded{
+    display: inherit;
+  }
+  &--expandable{
+    display: inherit;
+  }
+
+  &__children{
+    margin-left: 1.5em;
+    display: inherit;
+  }
 }

@@ -1,4 +1,10 @@
 .valueNode{
-  &__label{}
-  &__value{}
+  margin-left: 1.5em;
+
+  &__label{
+    display: inherit;
+  }
+  &__value{
+    display: inherit;
+  }
 }

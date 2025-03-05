@@ -142,8 +142,8 @@ export default function JSONNestedNode(props: Props) {
   const stylingArgs = [keyPath, nodeType, expanded, expandable] as const;
 
   return hideRoot ? (
-    <li className={`rootNode rootNode--keypath-${keyPath[0]} rootNode--nodetype-${nodeType} rootNode--expanded-${expanded} rootNode--expandable-${expandable}`}>
-      <ul className={`rootNodeChildren rootNodeChildren--keypath-${keyPath[0]} rootNodeChildren--nodetype-${nodeType} rootNodeChildren--expanded-${expanded} rootNodeChildren--expandable-${expandable}`}>
+    <li className={`${styles.rootNode} rootNode--keypath-${keyPath[0]} rootNode--nodetype-${nodeType} ${expanded ? styles.rootNodeExpanded : ''} ${expandable ? styles.rootNodeExpandable : ''}`}>
+      <ul className={`${styles.rootNode__children} rootNodeChildren--keypath-${keyPath[0]} rootNodeChildren--nodetype-${nodeType} rootNodeChildren--expanded-${expanded} rootNodeChildren--expandable-${expandable}`}>
         {renderedChildren}
       </ul>
     </li>
@@ -157,7 +157,7 @@ export default function JSONNestedNode(props: Props) {
         />
       )}
       <span
-          className={`nestedNodeLabel nestedNodeLabel--keypath-${keyPath[0]} nestedNodeLabel--nodetype-${nodeType} nestedNodeLabel--expanded-${expanded} nestedNodeLabel--expandable-${expandable}`}
+          className={`${styles.nestedNode__label} nestedNodeLabel--keypath-${keyPath[0]} nestedNodeLabel--nodetype-${nodeType} nestedNodeLabel--expanded-${expanded} nestedNodeLabel--expandable-${expandable}`}
         onClick={handleClick}
       >
         {labelRenderer(...stylingArgs)}

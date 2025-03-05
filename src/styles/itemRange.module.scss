@@ -1,3 +1,6 @@
 .itemRange{
-  &--expanded{}
+  display: inherit;
+  &--expanded{
+    display: inherit;
+  }
 }

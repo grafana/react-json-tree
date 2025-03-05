@@ -1,10 +1,29 @@
+@import "variables";
+
 .arrow{
-  &__container{}
-  &--node-type{}
-  &--expanded{}
-  &--arrow-style{
-    &--single{}
-    &--double{}
+  transition: $transitionTiming linear transform;
+  transform-origin: 45% 50%;
+  display: inline-flex;
+
+  &__container{
+    display: inline-flex;
   }
-  &__inner{}
+  &--node-type{
+    display: inherit;
+  }
+  &--expanded{
+    transform: rotateZ(90deg);
+  }
+  &--arrow-style{
+    display: inherit;
+    &--single{
+      display: inherit;
+    }
+    &--double{
+      display: inherit;
+    }
+  }
+  &__inner{
+    display: inherit;
+  }
 }

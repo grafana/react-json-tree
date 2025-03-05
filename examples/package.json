@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "immutable": "^4.3.7",
-    "react-json-tree": "file:../react-json-tree-v1.0.0.tgz",
+    "react-json-tree": "file:../react-json-tree-v1.0.3.tgz",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },

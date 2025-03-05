@@ -13,10 +13,7 @@ describe('JSONTree', () => {
 
   it('should render basic tree', () => {
     render(<JSONTree data={BASIC_DATA} />);
-
     expect(screen.getByRole('group')).toBeInTheDocument()
-
-    // expect(result.props.children.type.name).toBe(JSONNode.name);
   });
 });
 
