@@ -4,6 +4,8 @@ export type Key = string | number;
 
 export type KeyPath = readonly (string | number)[];
 
+export {JSONTree} from "./index.tsx";
+
 export type GetItemString = (
   nodeType: string,
   data: unknown,
