@@ -9,9 +9,6 @@ const config: webpack.Configuration = {
   mode: 'development',
   entry: './src/index.tsx',
   devtool: 'eval-source-map',
-  devServer: {
-    static: './dist',
-  },
   plugins: [
     new BundleAnalyzerPlugin.BundleAnalyzerPlugin(),
     new HtmlWebpackPlugin({

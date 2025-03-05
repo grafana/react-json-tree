@@ -1,5 +1,5 @@
 import {cleanup, render, screen} from '@testing-library/react'
-import {afterEach, describe, it} from 'vitest'
+import {afterEach, describe, it, expect} from 'vitest'
 import {JSONTree} from '../main.ts';
 
 const BASIC_DATA = { a: 1, b: 'c' };
