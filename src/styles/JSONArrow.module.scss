@@ -1,29 +1,23 @@
-@import "variables";
+.arrowContainer {
+  display: var(--json-tree-inline-flex);
+  margin-right: var(--json-tree-arrow-container-margin-right);
+}
 
-.arrow{
-  transition: $transitionTiming linear transform;
-  transform-origin: 45% 50%;
-  display: inline-flex;
+.arrow {
+  transition: var(--json-tree-transition);
+  transform-origin: var(--json-tree-arrow-transform-origin);
+  display: var(--json-tree-inline-flex);
+  color: var(--json-tree-arrow-color);
 
-  &__container{
-    display: inline-flex;
+  &--node-type {
   }
-  &--node-type{
-    display: inherit;
+  &--expanded {
+    transform: var(--json-tree-arrow-transform);
   }
-  &--expanded{
-    transform: rotateZ(90deg);
-  }
-  &--arrow-style{
-    display: inherit;
-    &--single{
-      display: inherit;
+  &--arrow-style {
+    &--single {
     }
-    &--double{
-      display: inherit;
+    &--double {
     }
-  }
-  &__inner{
-    display: inherit;
   }
 }

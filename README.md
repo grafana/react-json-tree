@@ -2,23 +2,21 @@
 
 React JSON Viewer Component, Extracted from [redux-devtools](https://github.com/reduxjs/redux-devtools). Supports [iterable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#iterable) objects, such as [Immutable.js](https://facebook.github.io/immutable-js/).
 
-![](https://img.shields.io/npm/v/react-json-tree.svg)
-
 ### Usage
 
 ```jsx
-import { JSONTree } from 'react-json-tree';
+import { JSONTree } from "react-json-tree";
 // If you're using Immutable.js: `npm i --save immutable`
-import { Map } from 'immutable';
+import { Map } from "immutable";
 
 // Inside a React component:
 const json = {
   array: [1, 2, 3],
   bool: true,
   object: {
-    foo: 'bar',
+    foo: "bar",
   },
-  immutable: Map({ key: 'value' }),
+  immutable: Map({ key: "value" }),
 };
 
 <JSONTree data={json} />;
@@ -26,9 +24,29 @@ const json = {
 
 ### Theming
 
-TODO/In progress. All base styles are a single css class of specificity, and can be overwritten in the consuming application.
+Styling is managed via scss modules and css variables, it should be straight-forward to override these styles in the consuming application.
+Basic theming is possible by overwriting the CSS variables in the [\_variables.scss](src%2Fstyles%2F_variables.scss).
+
+For example:
+
+```typescript jsx
+<div
+    style={
+        {
+            "--json-tree-label-color": "rgb(12, 127, 149)",
+            "--json-tree-key-label-color": "rgb(71, 131, 0)",
+            "--json-tree-label-value-color": "rgb(255, 48, 124)",
+            "--json-tree-arrow-color": "rgb(12, 127, 149)",
+            "--json-tree-value-text-wrap": "nowrap",
+        } as React.CSSProperties
+    }
+>
+    <JSONTree data={data}/>
+</div>
 
 ```
+
+````
 
 #### Advanced Customization
 
@@ -38,7 +56,7 @@ TODO/In progress. All base styles are a single css class of specificity, and can
     data={data}
   />
 </div>
-```
+````
 
 #### Customize Labels for Arrays, Objects, and Iterables
 
@@ -55,12 +73,12 @@ But if you pass the following:
 
 ```jsx
 const getItemString = (type, data, itemType, itemString, keyPath)
-  => (<span> // {type}</span>);
+    => (<span> // {type}</span>);
 ```
 
 Then the preview of child elements now look like this:
 
-![](http://cl.ly/image/1J1a0b0T0K3c/screenshot%202015-10-07%20at%203.44.31%20PM.png)
+![get-item-string-example.png](img%2Fget-item-string-example.png)
 
 #### Customize Rendering
 
@@ -82,6 +100,26 @@ Their full signatures are:
 - `labelRenderer: function(keyPath, nodeType, expanded, expandable)`
 - `valueRenderer: function(valueAsString, value, ...keyPath)`
 
+#### Adding interactive elements:
+
+Using the labelRenderer method, you can add interactive elements to the labels:
+
+```typescript jsx
+// ...
+<JSONTree
+    data={data}
+    labelRenderer={(keyPath, nodeType, expanded) => {
+        <span>
+            <IconButton name={"plus-circle"} />
+            <IconButton name={"minus-circle"} />
+            <strong>{keyPath[0]}</strong>
+        </span>
+    }}
+/>
+```
+
+![buttons-example.png](img%2Fbuttons-example.png)
+
 #### More Options
 
 - `shouldExpandNodeInitially: function(keyPath, data, level)` - determines if node should be expanded when it first renders (root is expanded by default)
@@ -99,8 +137,10 @@ Their full signatures are:
 - [Iterable support](https://github.com/gaearon/redux-devtools/pull/79) thanks to [Daniel K](https://github.com/FredyC).
 - npm package created by [Shu Uesugi](http://github.com/chibicode) ([shu@chibicode.com](mailto:shu@chibicode.com)) per [this issue](https://github.com/gaearon/redux-devtools/issues/85).
 - Improved and maintained by [Alexander Kuznetsov](https://github.com/alexkuz). The repository was merged into [`redux-devtools` monorepo](https://github.com/reduxjs/redux-devtools) from [`alexkuz/react-json-tree`](https://github.com/alexkuz/react-json-tree).
+- Forked out of redux-devtools monorepo and stripped out all external dependencies by [Galen Kistler](https://github.com/gtk-grafana/react-json-tree/)
 
 ### Similar Libraries
+
 - [original react-json-tree](https://github.com/reduxjs/redux-devtools/tree/main/packages/react-json-tree)
 - [react-treeview](https://github.com/chenglou/react-treeview)
 - [react-json-inspector](https://github.com/Lapple/react-json-inspector)

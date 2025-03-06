@@ -1,16 +1,16 @@
-import React from 'react';
-import { Map } from 'immutable';
-import { JSONTree } from 'react-json-tree';
+import React from "react";
+import { Map } from "immutable";
+import { JSONTree } from "react-json-tree";
 
 const getItemString = (type: string) => (
   <span>
-    {' // '}
+    {" // "}
     {type}
   </span>
 );
 
 const longString =
-  'Loremipsumdolorsitamet,consecteturadipiscingelit.Namtempusipsumutfelisdignissimauctor.Maecenasodiolectus,finibusegetultricesvel,aliquamutelit.Loremipsumdolorsitamet,consecteturadipiscingelit.Namtempusipsumutfelisdignissimauctor.Maecenasodiolectus,finibusegetultricesvel,aliquamutelit.Loremipsumdolorsitamet,consecteturadipiscingelit.Namtempusipsumutfelisdignissimauctor.Maecenasodiolectus,finibusegetultricesvel,aliquamutelit.';  
+  "Loremipsumdolorsitamet,consecteturadipiscingelit.Namtempusipsumutfelisdignissimauctor.Maecenasodiolectus,finibusegetultricesvel,aliquamutelit.Loremipsumdolorsitamet,consecteturadipiscingelit.Namtempusipsumutfelisdignissimauctor.Maecenasodiolectus,finibusegetultricesvel,aliquamutelit.Loremipsumdolorsitamet,consecteturadipiscingelit.Namtempusipsumutfelisdignissimauctor.Maecenasodiolectus,finibusegetultricesvel,aliquamutelit.";
 
 class Custom {
   value: unknown;
@@ -20,11 +20,11 @@ class Custom {
   }
 
   get [Symbol.toStringTag]() {
-    return 'Custom';
+    return "Custom";
   }
 }
 
-const data = {
+const data: Record<string, any> = {
   array: [1, 2, 3],
   emptyArray: [],
   bool: true,
@@ -32,13 +32,13 @@ const data = {
   error: new Error(longString),
   object: {
     foo: {
-      bar: 'baz',
+      bar: "baz",
       nested: {
         moreNested: {
           evenMoreNested: {
             veryNested: {
               insanelyNested: {
-                ridiculouslyDeepValue: 'Hello',
+                ridiculouslyDeepValue: "Hello",
               },
             },
           },
@@ -51,39 +51,64 @@ const data = {
     },
   },
   emptyObject: {},
-  symbol: Symbol('value'),
-   
+  symbol: Symbol("value"),
+
   immutable: Map<any, any>([
-    ['key', 'value'],
-    [{ objectKey: 'value' }, { objectKey: 'value' }],
+    ["key", "value"],
+    [{ objectKey: "value" }, { objectKey: "value" }],
   ]),
   map: new window.Map<any, any>([
-    ['key', 'value'],
-    [0, 'value'],
-    [{ objectKey: 'value' }, { objectKey: 'value' }],
+    ["key", "value"],
+    [0, "value"],
+    [{ objectKey: "value" }, { objectKey: "value" }],
   ]),
   weakMap: new window.WeakMap([
-    [{ objectKey: 'value' }, { objectKey: 'value' }],
+    [{ objectKey: "value" }, { objectKey: "value" }],
   ]),
-  set: new window.Set(['value', 0, { objectKey: 'value' }]),
+  set: new window.Set(["value", 0, { objectKey: "value" }]),
   weakSet: new window.WeakSet([
-    { objectKey: 'value1' },
-    { objectKey: 'value2' },
+    { objectKey: "value1" },
+    { objectKey: "value2" },
   ]),
   hugeArray: Array.from({ length: 10000 }).map((_, i) => `item #${i}`),
   customProfile: {
-    avatar: new Custom('placehold.it/50x50'),
-    name: new Custom('Name'),
+    avatar: new Custom("placehold.it/50x50"),
+    name: new Custom("Name"),
   },
   longString,
 };
 
 const App = () => (
-  <div>
-    <JSONTree data={data} />
+  <div style={{ background: "#fff" }}>
+    <h3>Basic Example</h3>
+    <div style={{ background: "#222" }}>
+      <JSONTree data={data} />
+    </div>
     <br />
-    <h3>Dark Theme</h3>
-    <JSONTree data={data} />
+
+    <h3>Hide root node</h3>
+    <div style={{ background: "#222" }}>
+      <JSONTree hideRoot={true} data={data} />
+    </div>
+    <br />
+    <h3>Theming Example</h3>
+    <p>
+      Styles are managed with css variables, override the default values to
+      customize.
+    </p>
+    <div
+      style={
+        {
+          "--json-tree-label-color": "rgb(12, 127, 149)",
+          "--json-tree-key-label-color": "rgb(71, 131, 0)",
+          "--json-tree-label-value-color": "rgb(255, 48, 124)",
+          "--json-tree-arrow-color": "rgb(12, 127, 149)",
+          "--json-tree-value-text-wrap": "nowrap",
+        } as React.CSSProperties
+      }
+    >
+      <JSONTree data={data} />
+    </div>
 
     <h3>Style Customization</h3>
     <ul>
@@ -98,10 +123,7 @@ const App = () => (
       <li>See code for details.</li>
     </ul>
     <div>
-      <JSONTree
-        data={data}
-        getItemString={getItemString}
-      />
+      <JSONTree data={data} getItemString={getItemString} />
     </div>
     <h3>More Fine Grained Rendering</h3>
     <p>
@@ -115,8 +137,8 @@ const App = () => (
           <em>
             <span role="img" aria-label="mellow">
               😐
-            </span>{' '}
-            {raw as string}{' '}
+            </span>{" "}
+            {raw as string}{" "}
             <span role="img" aria-label="mellow">
               😐
             </span>
@@ -132,10 +154,7 @@ const App = () => (
     </div>
     <p>Collapsed root node</p>
     <div>
-      <JSONTree
-        data={data}
-        shouldExpandNodeInitially={() => false}
-      />
+      <JSONTree data={data} shouldExpandNodeInitially={() => false} />
     </div>
   </div>
 );

@@ -4,13 +4,15 @@ The minimal dev environment to enable live-editing React components.
 
 ### Usage
 
-To run the examples with your local changes, link react in the parent library directory. 
+To run the examples with your local changes, link react in the parent library directory.
+
 ```
 cd ../node_modules/react
 yarn link
 ```
 
-And in this package, run 
+And in this package, run
+
 ```
 yarn link react
 ```

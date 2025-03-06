@@ -1,7 +1,16 @@
-.tree{
-  background: #333;
+@import "variables";
+
+.tree {
+  padding: var(--json-tree-ul-root-padding);
 }
 
 .defaultItemString {
-  display: inline-flex;
+  display: var(--json-tree-inline-flex);
+  color: var(--json-tree-key-label-color);
+}
+
+.defaultLabelWrap {
+  display: var(--json-tree-inline-flex);
+  margin-right: var(--json-tree-default-label-wrap-margin-right);
+  color: var(--json-tree-label-color);
 }

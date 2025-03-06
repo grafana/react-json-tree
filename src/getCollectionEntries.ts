@@ -1,9 +1,9 @@
-import type { SortObjectKeys } from './types.js';
+import type { SortObjectKeys } from "./types.js";
 
 function getLength(type: string, collection: unknown) {
-  if (type === 'Object') {
+  if (type === "Object") {
     return Object.keys(collection as object).length;
-  } else if (type === 'Array') {
+  } else if (type === "Array") {
     return (collection as unknown[]).length;
   }
 
@@ -11,7 +11,7 @@ function getLength(type: string, collection: unknown) {
 }
 
 function isIterableMap(collection: unknown) {
-  return typeof (collection as Map<unknown, unknown>).set === 'function';
+  return typeof (collection as Map<unknown, unknown>).set === "function";
 }
 
 function getEntries(
@@ -23,7 +23,7 @@ function getEntries(
 ): { entries: { key: string | number; value: unknown }[]; hasMore?: boolean } {
   let res;
 
-  if (type === 'Object') {
+  if (type === "Object") {
     let keys = Object.getOwnPropertyNames(collection);
 
     if (sortObjectKeys) {
@@ -35,7 +35,7 @@ function getEntries(
     res = {
       entries: keys.map((key) => ({ key, value: collection[key] })),
     };
-  } else if (type === 'Array') {
+  } else if (type === "Array") {
     res = {
       entries: collection
         .slice(from, to + 1)
@@ -55,14 +55,14 @@ function getEntries(
       }
       if (from <= idx) {
         if (isMap && Array.isArray(item)) {
-          if (typeof item[0] === 'string' || typeof item[0] === 'number') {
+          if (typeof item[0] === "string" || typeof item[0] === "number") {
             entries.push({ key: item[0], value: item[1] });
           } else {
             entries.push({
               key: `[entry ${idx}]`,
               value: {
-                '[key]': item[0],
-                '[value]': item[1],
+                "[key]": item[0],
+                "[value]": item[1],
               },
             });
           }
@@ -116,7 +116,7 @@ export default function getCollectionEntries(
   const isSubset = to < Infinity;
   const length = Math.min(to - from, getLength(type, collection));
 
-  if (type !== 'Iterable') {
+  if (type !== "Iterable") {
     if (length <= limit || limit < 7) {
       return getEntriesBound(from, to).entries;
     }
@@ -127,7 +127,7 @@ export default function getCollectionEntries(
   }
 
   let limitedEntries;
-  if (type === 'Iterable') {
+  if (type === "Iterable") {
     const { hasMore, entries } = getEntriesBound(from, from + limit - 1);
 
     limitedEntries = hasMore

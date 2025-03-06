@@ -1,5 +1,5 @@
-import JSONNestedNode from './JSONNestedNode.js';
-import type { CommonInternalProps } from './types.js';
+import JSONNestedNode from "./JSONNestedNode.js";
+import type { CommonInternalProps } from "./types.js";
 
 // Returns the "n Items" string for this node,
 // generating and caching it if it hasn't been created yet.
@@ -9,7 +9,6 @@ function createItemString(data: any, limit: number) {
   if (Number.isSafeInteger(data.size)) {
     count = data.size;
   } else {
-     
     for (const entry of data) {
       if (limit && count + 1 > limit) {
         hasMore = true;
@@ -18,7 +17,7 @@ function createItemString(data: any, limit: number) {
       count += 1;
     }
   }
-  return `${hasMore ? '>' : ''}${count} ${count !== 1 ? 'entries' : 'entry'}`;
+  return `${hasMore ? ">" : ""}${count} ${count !== 1 ? "entries" : "entry"}`;
 }
 
 interface Props extends CommonInternalProps {

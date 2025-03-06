@@ -1,10 +1,10 @@
-import React, { useCallback, useState } from 'react';
-import JSONArrow from './JSONArrow.js';
-import getCollectionEntries from './getCollectionEntries.js';
-import JSONNode from './JSONNode.js';
-import ItemRange from './ItemRange.js';
-import type { CircularCache, CommonInternalProps } from './types.js';
-import styles from "./styles/JSONNestedNode.module.scss"
+import React, { useCallback, useState } from "react";
+import JSONArrow from "./JSONArrow.js";
+import getCollectionEntries from "./getCollectionEntries.js";
+import JSONNode from "./JSONNode.js";
+import ItemRange from "./ItemRange.js";
+import type { CircularCache, CommonInternalProps } from "./types.js";
+import styles from "./styles/JSONNestedNode.module.scss";
 
 /**
  * Renders nested values (eg. objects, arrays, lists, etc.)
@@ -128,7 +128,9 @@ export default function JSONNestedNode(props: Props) {
       : null;
 
   const itemType = (
-    <span className={ `${styles.nestedNodeItemType} ${expanded? styles.nestedNodeItemTypeExpanded : ''}`}>
+    <span
+      className={`${styles.nestedNodeItemType} ${expanded ? styles.nestedNodeItemTypeExpanded : ""}`}
+    >
       {nodeTypeIndicator}
     </span>
   );
@@ -142,37 +144,42 @@ export default function JSONNestedNode(props: Props) {
   const stylingArgs = [keyPath, nodeType, expanded, expandable] as const;
 
   return hideRoot ? (
-    <li className={`${styles.rootNode} rootNode--keypath-${keyPath[0]} rootNode--nodetype-${nodeType} ${expanded ? styles.rootNodeExpanded : ''} ${expandable ? styles.rootNodeExpandable : ''}`}>
-      <ul className={`${styles.rootNode__children} rootNodeChildren--keypath-${keyPath[0]} rootNodeChildren--nodetype-${nodeType} rootNodeChildren--expanded-${expanded} rootNodeChildren--expandable-${expandable}`}>
-        {renderedChildren}
-      </ul>
+    <li
+      data-nodetype={nodeType}
+      data-keypath={keyPath[0]}
+      className={`${styles.rootNode} ${expanded ? styles.rootNodeExpanded : ""} ${expandable ? styles.rootNodeExpandable : ""}`}
+    >
+      <ul className={`${styles.rootNodeChildren}`}>{renderedChildren}</ul>
     </li>
   ) : (
-    <li className={`${styles.nestedNode} nestedNode--keypath-${keyPath[0]} nestedNode--nodetype-${nodeType} ${expanded ? styles.nestedNodeExpanded : ''} ${expandable ? styles.nestedNodeExpandable : ''}`}>
-      {expandable && (
-        <JSONArrow
-          nodeType={nodeType}
-          expanded={expanded}
+    <li
+      data-nodetype={nodeType}
+      data-keypath={keyPath[0]}
+      className={`${styles.nestedNode}  ${expanded ? styles.nestedNodeExpanded : ""} ${expandable ? styles.nestedNodeExpandable : ""}`}
+    >
+      <span className={styles.nestedNodeLabelWrap}>
+        {expandable && (
+          <JSONArrow
+            nodeType={nodeType}
+            expanded={expanded}
+            onClick={handleClick}
+          />
+        )}
+        <span
+          data-nodetype={nodeType}
+          data-keypath={keyPath[0]}
+          className={`${styles.nestedNodeLabel} ${expanded ? styles.nestedNodeLabelExpanded : ""} ${expandable ? styles.nestedNodeLabelExpandable : ""}`}
           onClick={handleClick}
-        />
+        >
+          {labelRenderer(...stylingArgs)}
+        </span>
+        <span className={styles.nestedNodeItemString} onClick={handleClick}>
+          {renderedItemString}
+        </span>
+      </span>
+      {renderedChildren && (
+        <ul className={styles.nestedNodeChildren}>{renderedChildren}</ul>
       )}
-      <span
-          className={`${styles.nestedNode__label} nestedNodeLabel--keypath-${keyPath[0]} nestedNodeLabel--nodetype-${nodeType} nestedNodeLabel--expanded-${expanded} nestedNodeLabel--expandable-${expandable}`}
-        onClick={handleClick}
-      >
-        {labelRenderer(...stylingArgs)}
-      </span>
-      <span
-          className={styles.nestedNode__itemString}
-          onClick={handleClick}
-      >
-        {renderedItemString}
-      </span>
-      <ul
-          className={styles.nestedNode__children}
-          >
-        {renderedChildren}
-      </ul>
     </li>
   );
 }

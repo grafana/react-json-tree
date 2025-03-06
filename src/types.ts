@@ -1,10 +1,13 @@
-import React from 'react';
+import React from "react";
 
 export type Key = string | number;
 
-export type KeyPath = readonly (string | number)[];
+export interface JSONTreeProps extends Partial<CommonExternalProps> {
+  data: unknown;
+}
 
-export {JSONTree} from "./index.tsx";
+export type JSONTree = React.Component<JSONTreeProps>;
+export type KeyPath = readonly (string | number)[];
 
 export type GetItemString = (
   nodeType: string,

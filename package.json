@@ -11,13 +11,13 @@
     "url": "https://github.com/gtk-grafana/react-json-tree/issues"
   },
   "license": "MIT",
-  "author": "Shu Uesugi <shu@chibicode.com> (http://github.com/chibicode)",
+  "author": "Galen Kistler <gk@galenkistler.com> (http://github.com/gtk-grafana)",
   "contributors": [
+    "Shu Uesugi <shu@chibicode.com> (http://github.com/chibicode)",
     "Alexander Kuznetsov <alexkuz@gmail.com> (http://kuzya.org/)",
     "Dave Vedder <veddermatic@gmail.com> (http://www.eskimospy.com/)",
     "Daniele Zannotti <dzannotti@me.com> (http://www.github.com/dzannotti)",
-    "Mihail Diordiev <zalmoxisus@gmail.com> (https://github.com/zalmoxisus)",
-    "Galen Kistler <galen.kistler@grafana.com (https://github.com/gtk-grafana)>"
+    "Mihail Diordiev <zalmoxisus@gmail.com> (https://github.com/zalmoxisus)"
   ],
   "type": "module",
   "scripts": {
