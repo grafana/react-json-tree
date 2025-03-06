@@ -5,6 +5,7 @@
 
 .valueNodeValue {
   text-wrap: var(--json-tree-value-text-wrap);
+  word-break: var(--json-tree-value-text-word-break);
   color: var(--json-tree-label-value-color);
 }
 
