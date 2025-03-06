@@ -149,7 +149,7 @@ export default function JSONNestedNode(props: Props) {
       data-keypath={keyPath[0]}
       className={`${styles.rootNode} ${expanded ? styles.rootNodeExpanded : ""} ${expandable ? styles.rootNodeExpandable : ""}`}
     >
-      <ul className={`${styles.rootNode__children}`}>{renderedChildren}</ul>
+      <ul className={`${styles.rootNodeChildren}`}>{renderedChildren}</ul>
     </li>
   ) : (
     <li

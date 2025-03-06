@@ -79,84 +79,90 @@ const data: Record<string, any> = {
 };
 
 const App = () => (
-  <div style={{ background: "#fff" }}>
-    <h3>Basic Example</h3>
-    <div style={{ background: "#222" }}>
-      <JSONTree<Record<string, any>> data={data} />
-    </div>
-    <br />
-    <h3>Theming Example</h3>
-    <p>
-      Styles are managed with css variables, override the default values to
-      customize.
-    </p>
-    <div
-      style={
-        {
-          "--json-tree-label-color": "rgb(12, 127, 149)",
-          "--json-tree-key-label-color": "rgb(71, 131, 0)",
-          "--json-tree-label-value-color": "rgb(255, 48, 124)",
-          "--json-tree-arrow-color": "rgb(12, 127, 149)",
-          "--json-tree-value-text-wrap": "nowrap",
-        } as React.CSSProperties
-      }
-    >
-      <JSONTree<Record<string, any>> data={data} />
-    </div>
+    <div style={{background: "#fff"}}>
+        <h3>Basic Example</h3>
+        <div style={{background: "#222"}}>
+            <JSONTree data={data}/>
+        </div>
+        <br/>
 
-    <h3>Style Customization</h3>
-    <ul>
-      <li>
-        Label changes between uppercase/lowercase based on the expanded state.
-      </li>
-      <li>Array keys are styled based on their parity.</li>
-      <li>
-        The labels of objects, arrays, and iterables are customized as &quot;//
-        type&quot;.
-      </li>
-      <li>See code for details.</li>
-    </ul>
-    <div>
-      <JSONTree<Record<string, any>>
-        data={data}
-        getItemString={getItemString}
-      />
-    </div>
-    <h3>More Fine Grained Rendering</h3>
-    <p>
-      Pass <code>labelRenderer</code> or <code>valueRenderer</code>.
-    </p>
-    <div>
-      <JSONTree<Record<string, any>>
-        data={data}
-        labelRenderer={([raw]) => <span>(({raw})):</span>}
-        valueRenderer={(raw) => (
-          <em>
+        <h3>Hide root node</h3>
+        <div style={{background: "#222"}}>
+            <JSONTree hideRoot={true} data={data}/>
+        </div>
+        <br/>
+        <h3>Theming Example</h3>
+        <p>
+            Styles are managed with css variables, override the default values to
+            customize.
+        </p>
+        <div
+            style={
+                {
+                    "--json-tree-label-color": "rgb(12, 127, 149)",
+                    "--json-tree-key-label-color": "rgb(71, 131, 0)",
+                    "--json-tree-label-value-color": "rgb(255, 48, 124)",
+                    "--json-tree-arrow-color": "rgb(12, 127, 149)",
+                    "--json-tree-value-text-wrap": "nowrap",
+                } as React.CSSProperties
+            }
+        >
+            <JSONTree data={data}/>
+        </div>
+
+        <h3>Style Customization</h3>
+        <ul>
+            <li>
+                Label changes between uppercase/lowercase based on the expanded state.
+            </li>
+            <li>Array keys are styled based on their parity.</li>
+            <li>
+                The labels of objects, arrays, and iterables are customized as &quot;//
+                type&quot;.
+            </li>
+            <li>See code for details.</li>
+        </ul>
+        <div>
+            <JSONTree
+                data={data}
+                getItemString={getItemString}
+            />
+        </div>
+        <h3>More Fine Grained Rendering</h3>
+        <p>
+            Pass <code>labelRenderer</code> or <code>valueRenderer</code>.
+        </p>
+        <div>
+            <JSONTree
+                data={data}
+                labelRenderer={([raw]) => <span>(({raw})):</span>}
+                valueRenderer={(raw) => (
+                    <em>
             <span role="img" aria-label="mellow">
               😐
             </span>{" "}
-            {raw as string}{" "}
-            <span role="img" aria-label="mellow">
+                        {raw as string}{" "}
+                        <span role="img" aria-label="mellow">
               😐
             </span>
-          </em>
-        )}
-      />
+                    </em>
+                )}
+            />
+        </div>
+        <p>
+            Sort object keys with <code>sortObjectKeys</code> prop.
+        </p>
+        <div>
+            <JSONTree data={data} sortObjectKeys/>
+        </div>
+        <p>Collapsed root node</p>
+        <div>
+            <JSONTree
+                data={data}
+                shouldExpandNodeInitially={() => false}
+            />
+        </div>
     </div>
-    <p>
-      Sort object keys with <code>sortObjectKeys</code> prop.
-    </p>
-    <div>
-      <JSONTree<Record<string, any>> data={data} sortObjectKeys />
-    </div>
-    <p>Collapsed root node</p>
-    <div>
-      <JSONTree<Record<string, any>>
-        data={data}
-        shouldExpandNodeInitially={() => false}
-      />
-    </div>
-  </div>
 );
 
 export default App;

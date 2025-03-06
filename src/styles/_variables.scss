@@ -19,6 +19,10 @@ $transitionTiming: 150ms;
 
   --json-tree-arrow-container-margin-right: var(--json-tree-spacing-md);
 
+  --json-tree-ul-root-padding: 0;
+  --json-tree-ul-root-children-padding: 0;
+  --json-tree-ul-padding: 0;
+
   /** TEXT **/
   --json-tree-value-text-wrap: wrap;
   --json-tree-value-text-word-break: break-word;

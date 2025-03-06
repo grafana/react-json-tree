@@ -1,6 +1,7 @@
 @import "variables";
 
 .tree {
+  padding: var(--json-tree-ul-root-padding);
 }
 
 .defaultItemString {
