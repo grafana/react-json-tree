@@ -1,5 +1,6 @@
 .nestedNode {
   display: var(--json-tree-inline-flex);
+  position: relative;
 
   &--expandable {
     align-items: var(--json-tree-align-items);

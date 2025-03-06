@@ -15,16 +15,15 @@ export default function JSONArrow({
   onClick,
 }: Props) {
   return (
-    <div className={styles.arrowContainer} onClick={onClick}>
       <div
-        className={`${styles.arrow} arrow--node-type-${nodeType} ${expanded ? styles.arrowExpanded : ""} arrow--arrow-style-${arrowStyle === "single" ? styles.arrowArrowStyleSingle : styles.arrowArrowStyleDouble}`}
+          onClick={onClick}
+          className={`${styles.arrow} ${expanded ? styles.arrowExpanded : ""} ${arrowStyle === "single" ? styles.arrowArrowStyleSingle : styles.arrowArrowStyleDouble}`}
       >
-        {/* @todo let implementer define custom arrow object */}
-        {"\u25B6"}
-        {arrowStyle === "double" && (
-          <div className={styles.arrowInner}>{"\u25B6"}</div>
-        )}
+          {/* @todo let implementer define custom arrow object */}
+          {"\u25B6"}
+          {arrowStyle === "double" && (
+              <div className={`${styles.arrowInner}`}>{"\u25B6"}</div>
+          )}
       </div>
-    </div>
   );
 }
