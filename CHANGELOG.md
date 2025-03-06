@@ -1,6 +1,7 @@
 # Change Log
 
 ## 0.0.2
+
 Fixed [bug](https://github.com/gtk-grafana/react-json-tree/issues/6) with collapsed top-level expandable nodes.
 
 ## 0.0.1

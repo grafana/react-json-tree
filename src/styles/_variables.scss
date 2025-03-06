@@ -35,7 +35,8 @@
   --json-tree-flex-direction: column;
 
   /** Arrow */
-  --json-tree-arrow-transition: var(--json-tree-transition-timing) linear transform;
+  --json-tree-arrow-transition: var(--json-tree-transition-timing) linear
+    transform;
   --json-tree-arrow-transform-origin: 45% 50%;
   --json-tree-arrow-transform: rotateZ(90deg);
   --json-tree-arrow-width: 1.5em;
