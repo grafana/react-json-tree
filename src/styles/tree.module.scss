@@ -1,6 +1,6 @@
 @import "variables";
 
-.tree{
+.tree {
 }
 
 .defaultItemString {
@@ -11,5 +11,5 @@
 .defaultLabelWrap {
   display: var(--json-tree-inline-flex);
   margin-right: var(--json-tree-default-label-wrap-margin-right);
-  color: var(--json-tree-label-color)
+  color: var(--json-tree-label-color);
 }

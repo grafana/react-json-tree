@@ -3,21 +3,21 @@
   margin-right: var(--json-tree-arrow-container-margin-right);
 }
 
-.arrow{
+.arrow {
   transition: var(--json-tree-transition);
   transform-origin: var(--json-tree-arrow-transform-origin);
   display: var(--json-tree-inline-flex);
   color: var(--json-tree-arrow-color);
 
-  &--node-type{
+  &--node-type {
   }
-  &--expanded{
+  &--expanded {
     transform: var(--json-tree-arrow-transform);
   }
-  &--arrow-style{
-    &--single{
+  &--arrow-style {
+    &--single {
     }
-    &--double{
+    &--double {
     }
   }
 }

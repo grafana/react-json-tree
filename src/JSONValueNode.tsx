@@ -4,8 +4,8 @@ import type {
   KeyPath,
   LabelRenderer,
   ValueRenderer,
-} from './types.js';
-import styles from "./styles/JSONValueNode.module.scss"
+} from "./types.js";
+import styles from "./styles/JSONValueNode.module.scss";
 
 /**
  * Renders simple values (eg. strings, numbers, booleans, etc)
@@ -31,12 +31,18 @@ export default function JSONValueNode({
   valueGetter = (value) => value,
 }: Props) {
   return (
-    <li className={`${styles.valueNode} valueNode--${nodeType} valueNode--${keyPath}`}>
+    <li
+      className={`${styles.valueNode} valueNode--${nodeType} valueNode--${keyPath}`}
+    >
       <span data-testid={"value-node-label"} className={styles.valueNodeLabel}>
         {labelRenderer(keyPath, nodeType, false, false)}
       </span>
       <span data-testid={"value-node-value"} className={styles.valueNodeValue}>
-        {valueRenderer(valueGetter ? valueGetter(value) : undefined, value, ...keyPath)}
+        {valueRenderer(
+          valueGetter ? valueGetter(value) : undefined,
+          value,
+          ...keyPath,
+        )}
       </span>
     </li>
   );

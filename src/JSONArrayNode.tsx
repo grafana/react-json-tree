@@ -1,11 +1,11 @@
-import JSONNestedNode from './JSONNestedNode.js';
-import type { CommonInternalProps } from './types.js';
+import JSONNestedNode from "./JSONNestedNode.js";
+import type { CommonInternalProps } from "./types.js";
 
 // Returns the "n Items" string for this node,
 // generating and caching it if it hasn't been created yet.
 function createItemString(data: unknown) {
   return `${(data as unknown[]).length} ${
-    (data as unknown[]).length !== 1 ? 'items' : 'item'
+    (data as unknown[]).length !== 1 ? "items" : "item"
   }`;
 }
 

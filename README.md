@@ -5,18 +5,18 @@ React JSON Viewer Component, Extracted from [redux-devtools](https://github.com/
 ### Usage
 
 ```jsx
-import { JSONTree } from 'react-json-tree';
+import { JSONTree } from "react-json-tree";
 // If you're using Immutable.js: `npm i --save immutable`
-import { Map } from 'immutable';
+import { Map } from "immutable";
 
 // Inside a React component:
 const json = {
   array: [1, 2, 3],
   bool: true,
   object: {
-    foo: 'bar',
+    foo: "bar",
   },
-  immutable: Map({ key: 'value' }),
+  immutable: Map({ key: "value" }),
 };
 
 <JSONTree data={json} />;
@@ -26,7 +26,7 @@ const json = {
 
 TODO/In progress. All base styles are a single css class of specificity, and can be overwritten in the consuming application.
 
-```
+````
 
 #### Advanced Customization
 
@@ -36,7 +36,7 @@ TODO/In progress. All base styles are a single css class of specificity, and can
     data={data}
   />
 </div>
-```
+````
 
 #### Customize Labels for Arrays, Objects, and Iterables
 
@@ -99,6 +99,7 @@ Their full signatures are:
 - Improved and maintained by [Alexander Kuznetsov](https://github.com/alexkuz). The repository was merged into [`redux-devtools` monorepo](https://github.com/reduxjs/redux-devtools) from [`alexkuz/react-json-tree`](https://github.com/alexkuz/react-json-tree).
 
 ### Similar Libraries
+
 - [original react-json-tree](https://github.com/reduxjs/redux-devtools/tree/main/packages/react-json-tree)
 - [react-treeview](https://github.com/chenglou/react-treeview)
 - [react-json-inspector](https://github.com/Lapple/react-json-inspector)

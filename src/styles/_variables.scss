@@ -6,7 +6,6 @@ $transitionTiming: 150ms;
   --json-tree-spacing-lg: 1em;
   --json-tree-spacing-xl: 1.5em;
 
-
   /** SPACING **/
   --json-tree-children-margin: var(--json-tree-spacing-xl);
 
@@ -37,11 +36,9 @@ $transitionTiming: 150ms;
   --json-tree-arrow-transform-origin: 45% 50%;
   --json-tree-arrow-transform: rotateZ(90deg);
 
-
-   /** THEMING **/
+  /** THEMING **/
   --json-tree-label-color: rgb(102, 217, 239);
   --json-tree-key-label-color: rgb(71, 131, 0);
   --json-tree-label-value-color: rgb(249, 38, 114);
   --json-tree-arrow-color: var(--json-tree-label-color);
-
 }

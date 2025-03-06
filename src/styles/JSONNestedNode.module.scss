@@ -31,7 +31,7 @@
 .nestedNodeChildren {
   display: var(--json-tree-block);
   flex-direction: var(--json-tree-flex-direction);
-  margin-left: var(--json-tree-children-margin)
+  margin-left: var(--json-tree-children-margin);
 }
 
 .nestedNodeLabel {
@@ -49,18 +49,14 @@
   }
 }
 
-
 .rootNode {
   display: var(--json-tree-inline-flex);
 }
 
 .rootNodeExpanded {
-
 }
 
-.rootNodeExpandable{
-
+.rootNodeExpandable {
 }
-.rootNode__children{
-
+.rootNode__children {
 }

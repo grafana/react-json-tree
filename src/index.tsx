@@ -2,31 +2,40 @@
 // all credits and original code to the author
 // Dave Vedder <veddermatic@gmail.com> http://www.eskimospy.com/
 // port by Daniele Zannotti http://www.github.com/dzannotti <dzannotti@me.com>
-import JSONNode from './JSONNode.js';
+import JSONNode from "./JSONNode.js";
 import type {
-    CommonExternalProps,
-    GetItemString,
-    IsCustomNode, JSONTreeProps,
-    LabelRenderer,
-    ShouldExpandNodeInitially,
-} from './types.js';
+  CommonExternalProps,
+  GetItemString,
+  IsCustomNode,
+  JSONTreeProps,
+  LabelRenderer,
+  ShouldExpandNodeInitially,
+} from "./types.js";
 
-import styles from "./styles/tree.module.scss"
+import styles from "./styles/tree.module.scss";
 
 const identity = (value: any) => value;
 const expandRootNode: ShouldExpandNodeInitially = (keyPath, data, level) =>
   level === 0;
-const defaultItemString: GetItemString = (type, data, itemType, itemString, keyPath) => (
+const defaultItemString: GetItemString = (
+  type,
+  data,
+  itemType,
+  itemString,
+  keyPath,
+) => (
   <span className={styles.defaultItemString}>
     {itemType} {itemString}
   </span>
 );
-const defaultLabelRenderer: LabelRenderer = ([label]) => <span className={styles.defaultLabelWrap}>{label}:</span>;
+const defaultLabelRenderer: LabelRenderer = ([label]) => (
+  <span className={styles.defaultLabelWrap}>{label}:</span>
+);
 const noCustomNode: IsCustomNode = () => false;
 
- export function JSONTree({
+export function JSONTree({
   data: value,
-  keyPath = ['root'],
+  keyPath = ["root"],
   labelRenderer = defaultLabelRenderer,
   valueRenderer = identity,
   shouldExpandNodeInitially = expandRootNode,
@@ -38,7 +47,7 @@ const noCustomNode: IsCustomNode = () => false;
   sortObjectKeys = false,
 }: JSONTreeProps) {
   return (
-     <ul role={'group'} className={styles.tree}>
+    <ul role={"group"} className={styles.tree}>
       <JSONNode
         keyPath={hideRoot ? [] : keyPath}
         value={postprocessValue(value)}
@@ -67,4 +76,4 @@ export type {
   IsCustomNode,
   SortObjectKeys,
   CommonExternalProps,
-} from './types.js';
+} from "./types.js";

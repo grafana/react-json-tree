@@ -1,6 +1,7 @@
 # Change Log
 
 ## 0.30.0 - gtk-grafana FORK
+
 Removing base-16 styles and lodash dependencies
 
 ## 0.20.0

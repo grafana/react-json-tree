@@ -1,4 +1,4 @@
-.valueNode{
+.valueNode {
   display: var(--json-tree-block);
   align-items: var(--json-tree-value-node-align-items);
 }
@@ -9,7 +9,7 @@
   color: var(--json-tree-label-value-color);
 }
 
-.valueNodeLabel{
+.valueNodeLabel {
   margin-right: var(--json-tree-value-label-margin);
   display: var(--json-tree-inline-flex);
 }
