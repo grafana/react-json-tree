@@ -1,5 +1,5 @@
 {
-  "name": "react-json-tree",
+  "name": "@gtk-grafana/react-json-tree",
   "version": "0.0.1",
   "description": "React JSON Viewer Component, Extracted from redux-devtools",
   "keywords": [
@@ -13,11 +13,31 @@
   "license": "MIT",
   "author": "Galen Kistler <gk@galenkistler.com> (http://github.com/gtk-grafana)",
   "contributors": [
-    "Shu Uesugi <shu@chibicode.com> (http://github.com/chibicode)",
-    "Alexander Kuznetsov <alexkuz@gmail.com> (http://kuzya.org/)",
-    "Dave Vedder <veddermatic@gmail.com> (http://www.eskimospy.com/)",
-    "Daniele Zannotti <dzannotti@me.com> (http://www.github.com/dzannotti)",
-    "Mihail Diordiev <zalmoxisus@gmail.com> (https://github.com/zalmoxisus)"
+    {
+      "name": "Shu Uesugi",
+      "email": "shu@chibicode.com",
+      "url": "http://github.com/chibicode"
+    },
+    {
+      "name": "Alexander Kuznetsov",
+      "email": "alexkuz@gmail.com",
+      "url": "http://kuzya.org/"
+    },
+    {
+      "name": "Dave Vedder",
+      "email": "veddermatic@gmail.com",
+      "url": "http://www.eskimospy.com/"
+    },
+    {
+      "name": "Daniele Zannotti",
+      "email": "dzannotti@me.com",
+      "url": "http://www.github.com/dzannotti"
+    },
+    {
+      "name": "Mihail Diordiev",
+      "email": "zalmoxisus@gmail.com",
+      "url": "https://github.com/zalmoxisus"
+    }
   ],
   "type": "module",
   "scripts": {
@@ -88,5 +108,14 @@
     "vite-plugin-externals": "^0.6.2",
     "vite-plugin-lib-inject-css": "2.2.1",
     "vitest": "3.0.7"
+  },
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gtk-grafana/react-json-tree.git"
+  },
+  "private": false,
+  "directories": {
+    "example": "examples"
   }
 }
