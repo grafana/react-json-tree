@@ -23,10 +23,12 @@ const json = {
 ```
 
 ### Theming
+
 Styling is managed via scss modules and css variables, it should be straight-forward to override these styles in the consuming application.
-Basic theming is possible by overwriting the CSS variables in the [_variables.scss](src%2Fstyles%2F_variables.scss).
+Basic theming is possible by overwriting the CSS variables in the [\_variables.scss](src%2Fstyles%2F_variables.scss).
 
 For example:
+
 ```typescript jsx
 <div
     style={
@@ -99,6 +101,7 @@ Their full signatures are:
 - `valueRenderer: function(valueAsString, value, ...keyPath)`
 
 #### Adding interactive elements:
+
 Using the labelRenderer method, you can add interactive elements to the labels:
 
 ```typescript jsx
@@ -114,8 +117,8 @@ Using the labelRenderer method, you can add interactive elements to the labels:
     }}
 />
 ```
-![buttons-example.png](img%2Fbuttons-example.png)
 
+![buttons-example.png](img%2Fbuttons-example.png)
 
 #### More Options
 
@@ -145,4 +148,5 @@ Using the labelRenderer method, you can add interactive elements to the labels:
 - [react-json-view](https://github.com/mac-s-g/react-json-view)
 
 ### License
+
 MIT
