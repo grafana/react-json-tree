@@ -1,6 +1,7 @@
 # Change Log
 
 ## 0.0.3
+
 Position arrows absolutely to keep labels of the same depth aligned horizontally: [#8](https://github.com/gtk-grafana/react-json-tree/issues/8)
 
 ## 0.0.2
