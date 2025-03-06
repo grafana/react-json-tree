@@ -156,6 +156,14 @@ const App = () => (
     <div>
       <JSONTree data={data} shouldExpandNodeInitially={() => false} />
     </div>
+
+      <p>Collapsed top-level nodes</p>
+      <div>
+        <JSONTree collectionLimit={100} data={Array.from({ length: 10000 }).map((_, i) => ({
+            name: `item #${i}`,
+            value: i
+        }))} />
+      </div>
   </div>
 );
 

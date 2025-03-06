@@ -3,6 +3,7 @@
 
   &--expandable {
     align-items: var(--json-tree-align-items);
+    display: var(--json-tree-block);
   }
 
   &--expanded {

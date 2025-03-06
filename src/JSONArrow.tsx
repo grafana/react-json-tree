@@ -22,7 +22,7 @@ export default function JSONArrow({
         {/* @todo let implementer define custom arrow object */}
         {"\u25B6"}
         {arrowStyle === "double" && (
-          <div className={styles.arrow__inner}>{"\u25B6"}</div>
+          <div className={styles.arrowInner}>{"\u25B6"}</div>
         )}
       </div>
     </div>
