@@ -110,6 +110,28 @@ const App = () => (
       <JSONTree data={data} />
     </div>
 
+    <h3>Theming Example - relative position arrows</h3>
+    <p>
+      Styles are managed with css variables, override the default values to
+      customize.
+    </p>
+    <div
+      style={
+        {
+          "--json-tree-label-color": "rgb(12, 127, 149)",
+          "--json-tree-key-label-color": "rgb(71, 131, 0)",
+          "--json-tree-label-value-color": "rgb(255, 48, 124)",
+          "--json-tree-arrow-color": "rgb(12, 127, 149)",
+          "--json-tree-arrow-position": "relative",
+          "--json-tree-ul-root-padding": "0",
+          "--json-tree-arrow-left-offset": "0",
+          "--json-tree-arrow-right-margin": "0.5em",
+        } as React.CSSProperties
+      }
+    >
+      <JSONTree data={data} />
+    </div>
+
     <h3>Style Customization</h3>
     <ul>
       <li>
@@ -157,13 +179,16 @@ const App = () => (
       <JSONTree data={data} shouldExpandNodeInitially={() => false} />
     </div>
 
-      <p>Collapsed top-level nodes</p>
-      <div>
-        <JSONTree collectionLimit={100} data={Array.from({ length: 10000 }).map((_, i) => ({
-            name: `item #${i}`,
-            value: i
-        }))} />
-      </div>
+    <p>Collapsed top-level nodes</p>
+    <div>
+      <JSONTree
+        collectionLimit={100}
+        data={Array.from({ length: 10000 }).map((_, i) => ({
+          name: `item #${i}`,
+          value: i,
+        }))}
+      />
+    </div>
   </div>
 );
 

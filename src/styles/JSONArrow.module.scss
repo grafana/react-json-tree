@@ -4,10 +4,14 @@
 }
 
 .arrow {
-  transition: var(--json-tree-transition);
+  transition: var(--json-tree-arrow-transition);
   transform-origin: var(--json-tree-arrow-transform-origin);
   display: var(--json-tree-inline-flex);
   color: var(--json-tree-arrow-color);
+  position: var(--json-tree-arrow-position);
+  left: var(--json-tree-arrow-left-offset);
+  margin-right: var(--json-tree-arrow-right-margin);
+  top: 0;
 
   &--node-type {
   }
@@ -23,5 +27,6 @@
 }
 
 .arrowInner {
-
+  position: var(--json-tree-arrow-position);
+  left: calc((var(--json-tree-arrow-width) / 3) * -1);
 }
