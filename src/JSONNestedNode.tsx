@@ -152,7 +152,7 @@ export default function JSONNestedNode(props: Props) {
     </li>
   ) : (
     <li
-        data-nodeType={nodeType}
+        data-nodetype={nodeType}
         data-keypath={keyPath[0]}
         className={`${styles.nestedNode}  ${expanded ? styles.nestedNodeExpanded : ''} ${expandable ? styles.nestedNodeExpandable : ''}`}>
 
@@ -165,7 +165,7 @@ export default function JSONNestedNode(props: Props) {
             />
           )}
           <span
-              data-nodeType={nodeType}
+              data-nodetype={nodeType}
               data-keypath={keyPath[0]}
               className={`${styles.nestedNodeLabel} ${expanded ? styles.nestedNodeLabelExpanded: ''} ${expandable ? styles.nestedNodeLabelExpandable : ''}`}
             onClick={handleClick}
