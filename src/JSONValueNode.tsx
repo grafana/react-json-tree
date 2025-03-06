@@ -32,10 +32,10 @@ export default function JSONValueNode({
 }: Props) {
   return (
     <li className={`${styles.valueNode} valueNode--${nodeType} valueNode--${keyPath}`}>
-      <span className={styles.valueNode__label}>
+      <span data-testid={"value-node-label"} className={styles.valueNodeLabel}>
         {labelRenderer(keyPath, nodeType, false, false)}
       </span>
-      <span className={styles.valueNode__value}>
+      <span data-testid={"value-node-value"} className={styles.valueNodeValue}>
         {valueRenderer(valueGetter ? valueGetter(value) : undefined, value, ...keyPath)}
       </span>
     </li>

@@ -15,7 +15,7 @@ export default function JSONArrow({
   onClick,
 }: Props) {
   return (
-    <div className={styles.arrow__container} onClick={onClick}>
+    <div className={styles.arrowContainer} onClick={onClick}>
       <div className={`${styles.arrow} arrow--node-type-${nodeType} ${expanded ? styles.arrowExpanded : ''} arrow--arrow-style-${arrowStyle === 'single' ? styles.arrowArrowStyleSingle : styles.arrowArrowStyleDouble}`}>
         {/* @todo let implementer define custom arrow object */}
         {'\u25B6'}

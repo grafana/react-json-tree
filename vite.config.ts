@@ -14,6 +14,7 @@ export default defineConfig({
     // Generates dts type files
     dts({
       exclude: ['src/test', '**/*.test.tsx', 'src/setupTests.js'],
+      insertTypesEntry: true,
       tsconfigPath: 'tsconfig.app.json',
     }),
       // injects css modules into js bundle

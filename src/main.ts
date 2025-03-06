@@ -1,5 +1,4 @@
 import {ReactNode} from 'react';
-
 export {JSONTree} from "./index.tsx";
 
 export type Key = string | number;

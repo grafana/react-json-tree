@@ -1,1 +1,46 @@
-$transitionTiming: 150ms
+$transitionTiming: 150ms;
+
+:root {
+  --json-tree-spacing-sm: 0.25em;
+  --json-tree-spacing-md: 0.5em;
+  --json-tree-spacing-lg: 1em;
+  --json-tree-spacing-xl: 1.5em;
+
+
+  /** SPACING **/
+  --json-tree-children-margin: var(--json-tree-spacing-xl);
+
+  --json-tree-value-label-margin: var(--json-tree-spacing-sm);
+  --json-tree-value-node-margin: var(--json-tree-spacing-xl);
+
+  --json-tree-nested-node-label-margin: var(--json-tree-spacing-md);
+  --json-tree-nested-node-item-type-margin: var(--json-tree-spacing-sm);
+
+  --json-tree-default-label-wrap-margin-right: var(--json-tree-spacing-md);
+
+  --json-tree-arrow-container-margin-right: var(--json-tree-spacing-md);
+
+  /** TEXT **/
+  --json-tree-value-text-wrap: wrap;
+
+  /** Layout **/
+  --json-tree-inline: inline;
+  --json-tree-inline-flex: inline-flex;
+  --json-tree-block: flex;
+  --json-tree-align-items: center;
+  --json-tree-value-node-align-items: flex-start;
+  --json-tree-flex-direction: column;
+
+  /** Arrow */
+  --json-tree-arrow-transition: $transitionTiming linear transform;
+  --json-tree-arrow-transform-origin: 45% 50%;
+  --json-tree-arrow-transform: rotateZ(90deg);
+
+
+   /** THEMING **/
+  --json-tree-label-color: rgb(102, 217, 239);
+  --json-tree-key-label-color: rgb(71, 131, 0);
+  --json-tree-label-value-color: rgb(249, 38, 114);
+  --json-tree-arrow-color: var(--json-tree-label-color);
+
+}

@@ -1,43 +1,66 @@
-.nestedNode{
-  display: inherit;
-  margin-left: 1.5em;
+.nestedNode {
+  display: var(--json-tree-inline-flex);
 
-  &--expanded{
-    display: inherit;
+  &--expandable {
+    align-items: var(--json-tree-align-items);
   }
-  &--expandable{
-    display: inherit;
+
+  &--expanded {
+    display: var(--json-tree-inline);
   }
-  &--itemType{
-    display: inherit;
-    &--expanded{
-      display: inherit;
+
+  &--itemType {
+    margin-right: var(--json-tree-nested-node-item-type-margin);
+
+    &--expanded {
+      display: var(--json-tree-inline);
     }
-  }
-
-  &__label{
-    display: inline-flex;
-  }
-
-  &__itemString{
-    display: inherit;
-  }
-  &__children{
-    display: inherit;
   }
 }
 
-.rootNode{
-  display: inherit;
-  &--expanded{
-    display: inherit;
-  }
-  &--expandable{
-    display: inherit;
+.nestedNodeLabelWrap {
+  display: var(--json-tree-inline-flex);
+  align-items: var(--json-tree-align-items);
+  cursor: pointer;
+}
+
+.nestedNodeItemString {
+  display: var(--json-tree-inline-flex);
+}
+
+.nestedNodeChildren {
+  display: var(--json-tree-block);
+  flex-direction: var(--json-tree-flex-direction);
+  margin-left: var(--json-tree-children-margin)
+}
+
+.nestedNodeLabel {
+  display: var(--json-tree-inline-flex);
+  align-items: var(--json-tree-align-items);
+  margin-right: var(--json-tree-nested-node-label-margin);
+
+  &--expandable {
+    display: var(--json-tree-inline-flex);
+    align-items: var(--json-tree-align-items);
   }
 
-  &__children{
-    margin-left: 1.5em;
-    display: inherit;
+  &--expanded {
+    display: var(--json-tree-inline-flex);
   }
+}
+
+
+.rootNode {
+  display: var(--json-tree-inline-flex);
+}
+
+.rootNodeExpanded {
+
+}
+
+.rootNodeExpandable{
+
+}
+.rootNode__children{
+
 }

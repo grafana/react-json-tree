@@ -4,20 +4,14 @@
 // port by Daniele Zannotti http://www.github.com/dzannotti <dzannotti@me.com>
 import JSONNode from './JSONNode.js';
 import type {
-  CommonExternalProps,
-  GetItemString,
-  IsCustomNode,
-  LabelRenderer,
-  ShouldExpandNodeInitially,
+    CommonExternalProps,
+    GetItemString,
+    IsCustomNode, JSONTreeProps,
+    LabelRenderer,
+    ShouldExpandNodeInitially,
 } from './types.js';
 
-import p from "./../package.json"
-
 import styles from "./styles/tree.module.scss"
-
-interface Props extends Partial<CommonExternalProps> {
-  data: unknown;
-}
 
 const identity = (value: any) => value;
 const expandRootNode: ShouldExpandNodeInitially = (keyPath, data, level) =>
@@ -27,10 +21,10 @@ const defaultItemString: GetItemString = (type, data, itemType, itemString, keyP
     {itemType} {itemString}
   </span>
 );
-const defaultLabelRenderer: LabelRenderer = ([label]) => <span>{label}:</span>;
+const defaultLabelRenderer: LabelRenderer = ([label]) => <span className={styles.defaultLabelWrap}>{label}:</span>;
 const noCustomNode: IsCustomNode = () => false;
 
-export function JSONTree({
+ export function JSONTree({
   data: value,
   keyPath = ['root'],
   labelRenderer = defaultLabelRenderer,
@@ -42,11 +36,7 @@ export function JSONTree({
   isCustomNode = noCustomNode,
   collectionLimit = 50,
   sortObjectKeys = false,
-}: Props) {
-
-
-  console.log('test 5')
-  console.log('version', p.version)
+}: JSONTreeProps) {
   return (
      <ul role={'group'} className={styles.tree}>
       <JSONNode

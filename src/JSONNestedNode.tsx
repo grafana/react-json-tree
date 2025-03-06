@@ -142,37 +142,49 @@ export default function JSONNestedNode(props: Props) {
   const stylingArgs = [keyPath, nodeType, expanded, expandable] as const;
 
   return hideRoot ? (
-    <li className={`${styles.rootNode} rootNode--keypath-${keyPath[0]} rootNode--nodetype-${nodeType} ${expanded ? styles.rootNodeExpanded : ''} ${expandable ? styles.rootNodeExpandable : ''}`}>
-      <ul className={`${styles.rootNode__children} rootNodeChildren--keypath-${keyPath[0]} rootNodeChildren--nodetype-${nodeType} rootNodeChildren--expanded-${expanded} rootNodeChildren--expandable-${expandable}`}>
+    <li
+        data-nodetype={nodeType}
+        data-keypath={keyPath[0]}
+        className={`${styles.rootNode} ${expanded ? styles.rootNodeExpanded : ''} ${expandable ? styles.rootNodeExpandable : ''}`}>
+      <ul className={`${styles.rootNode__children}`}>
         {renderedChildren}
       </ul>
     </li>
   ) : (
-    <li className={`${styles.nestedNode} nestedNode--keypath-${keyPath[0]} nestedNode--nodetype-${nodeType} ${expanded ? styles.nestedNodeExpanded : ''} ${expandable ? styles.nestedNodeExpandable : ''}`}>
-      {expandable && (
-        <JSONArrow
-          nodeType={nodeType}
-          expanded={expanded}
-          onClick={handleClick}
-        />
-      )}
-      <span
-          className={`${styles.nestedNode__label} nestedNodeLabel--keypath-${keyPath[0]} nestedNodeLabel--nodetype-${nodeType} nestedNodeLabel--expanded-${expanded} nestedNodeLabel--expandable-${expandable}`}
-        onClick={handleClick}
-      >
-        {labelRenderer(...stylingArgs)}
-      </span>
-      <span
-          className={styles.nestedNode__itemString}
-          onClick={handleClick}
-      >
-        {renderedItemString}
-      </span>
-      <ul
-          className={styles.nestedNode__children}
+    <li
+        data-nodeType={nodeType}
+        data-keypath={keyPath[0]}
+        className={`${styles.nestedNode}  ${expanded ? styles.nestedNodeExpanded : ''} ${expandable ? styles.nestedNodeExpandable : ''}`}>
+
+      <span className={styles.nestedNodeLabelWrap}>
+          {expandable && (
+            <JSONArrow
+              nodeType={nodeType}
+              expanded={expanded}
+              onClick={handleClick}
+            />
+          )}
+          <span
+              data-nodeType={nodeType}
+              data-keypath={keyPath[0]}
+              className={`${styles.nestedNodeLabel} ${expanded ? styles.nestedNodeLabelExpanded: ''} ${expandable ? styles.nestedNodeLabelExpandable : ''}`}
+            onClick={handleClick}
           >
-        {renderedChildren}
-      </ul>
+            {labelRenderer(...stylingArgs)}
+          </span>
+          <span
+              className={styles.nestedNodeItemString}
+              onClick={handleClick}
+          >
+            {renderedItemString}
+          </span>
+      </span>
+      {renderedChildren &&
+          <ul className={styles.nestedNodeChildren}>
+            {renderedChildren}
+          </ul>
+      }
+
     </li>
   );
 }

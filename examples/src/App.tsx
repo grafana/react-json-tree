@@ -24,7 +24,7 @@ class Custom {
   }
 }
 
-const data = {
+const data: Record<string, any> = {
   array: [1, 2, 3],
   emptyArray: [],
   bool: true,
@@ -80,10 +80,10 @@ const data = {
 
 const App = () => (
   <div>
-    <JSONTree data={data} />
+    <JSONTree<Record<string, any>> data={data} />
     <br />
     <h3>Dark Theme</h3>
-    <JSONTree data={data} />
+    <JSONTree<Record<string, any>> data={data} />
 
     <h3>Style Customization</h3>
     <ul>
@@ -98,7 +98,7 @@ const App = () => (
       <li>See code for details.</li>
     </ul>
     <div>
-      <JSONTree
+      <JSONTree<Record<string, any>>
         data={data}
         getItemString={getItemString}
       />
@@ -108,7 +108,7 @@ const App = () => (
       Pass <code>labelRenderer</code> or <code>valueRenderer</code>.
     </p>
     <div>
-      <JSONTree
+      <JSONTree<Record<string, any>>
         data={data}
         labelRenderer={([raw]) => <span>(({raw})):</span>}
         valueRenderer={(raw) => (
@@ -128,11 +128,11 @@ const App = () => (
       Sort object keys with <code>sortObjectKeys</code> prop.
     </p>
     <div>
-      <JSONTree data={data} sortObjectKeys />
+      <JSONTree<Record<string, any>> data={data} sortObjectKeys />
     </div>
     <p>Collapsed root node</p>
     <div>
-      <JSONTree
+      <JSONTree<Record<string, any>>
         data={data}
         shouldExpandNodeInitially={() => false}
       />
