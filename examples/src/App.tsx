@@ -1,6 +1,6 @@
 import React from "react";
 import { Map } from "immutable";
-import { JSONTree } from "react-json-tree";
+import { JSONTree, KeyPath } from "react-json-tree";
 
 const getItemString = (type: string) => (
   <span>
@@ -77,6 +77,9 @@ const data: Record<string, any> = {
   },
   longString,
 };
+
+// Should not throw error
+const key: KeyPath = [];
 
 const App = () => (
   <div style={{ background: "#fff" }}>
