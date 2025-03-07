@@ -12,7 +12,7 @@ describe("JSONTree", () => {
   });
 
   it("should render basic tree", () => {
-    render(<JSONTree data={BASIC_DATA}  />);
+    render(<JSONTree data={BASIC_DATA} />);
     expect(screen.getByRole("tree")).toBeInTheDocument();
   });
 

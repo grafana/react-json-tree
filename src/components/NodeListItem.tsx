@@ -7,7 +7,7 @@ interface ListItemProps {
   nodeType: string;
   keyPath: KeyPath;
   className: string;
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export const NodeListItem = ({
