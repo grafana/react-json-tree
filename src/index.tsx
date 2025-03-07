@@ -47,7 +47,12 @@ export function JSONTree({
   sortObjectKeys = false,
 }: JSONTreeProps) {
   return (
-    <ul role={"group"} className={styles.tree}>
+    <ul
+      role="tree"
+      aria-multiselectable
+      aria-readonly="true"
+      className={styles.tree}
+    >
       <JSONNode
         keyPath={hideRoot ? [] : keyPath}
         value={postprocessValue(value)}
@@ -64,16 +69,3 @@ export function JSONTree({
     </ul>
   );
 }
-
-export type {
-  Key,
-  KeyPath,
-  GetItemString,
-  LabelRenderer,
-  ValueRenderer,
-  ShouldExpandNodeInitially,
-  PostprocessValue,
-  IsCustomNode,
-  SortObjectKeys,
-  CommonExternalProps,
-} from "./types.js";

@@ -5,6 +5,7 @@ import JSONNode from "./JSONNode.js";
 import ItemRange from "./ItemRange.js";
 import type { CircularCache, CommonInternalProps } from "./types.js";
 import styles from "./styles/JSONNestedNode.module.scss";
+import { NodeListItem } from "./components/NodeListItem.tsx";
 
 /**
  * Renders nested values (eg. objects, arrays, lists, etc.)
@@ -144,17 +145,21 @@ export default function JSONNestedNode(props: Props) {
   const stylingArgs = [keyPath, nodeType, expanded, expandable] as const;
 
   return hideRoot ? (
-    <li
-      data-nodetype={nodeType}
-      data-keypath={keyPath[0]}
+    <NodeListItem
+      expandable={expandable}
+      expanded={expanded}
+      nodeType={nodeType}
+      keyPath={keyPath}
       className={`${styles.rootNode} ${expanded ? styles.rootNodeExpanded : ""} ${expandable ? styles.rootNodeExpandable : ""}`}
     >
       <ul className={`${styles.rootNodeChildren}`}>{renderedChildren}</ul>
-    </li>
+    </NodeListItem>
   ) : (
-    <li
-      data-nodetype={nodeType}
-      data-keypath={keyPath[0]}
+    <NodeListItem
+      expandable={expandable}
+      expanded={expanded}
+      nodeType={nodeType}
+      keyPath={keyPath}
       className={`${styles.nestedNode}  ${expanded ? styles.nestedNodeExpanded : ""} ${expandable ? styles.nestedNodeExpandable : ""}`}
     >
       <span className={styles.nestedNodeLabelWrap}>
@@ -180,6 +185,6 @@ export default function JSONNestedNode(props: Props) {
       {renderedChildren && (
         <ul className={styles.nestedNodeChildren}>{renderedChildren}</ul>
       )}
-    </li>
+    </NodeListItem>
   );
 }
