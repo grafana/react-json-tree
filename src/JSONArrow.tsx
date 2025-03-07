@@ -1,22 +1,30 @@
-import React from "react";
+import React, {EventHandler} from "react";
 import styles from "./styles/JSONArrow.module.scss";
 
 interface Props {
   arrowStyle?: "single" | "double";
   expanded: boolean;
   nodeType: string;
-  onClick: React.MouseEventHandler<HTMLDivElement>;
+  onClick: () => void
 }
 
 export default function JSONArrow({
   arrowStyle = "single",
   expanded,
-  nodeType,
   onClick,
 }: Props) {
   return (
     <div
+      role={'button'}
+      aria-expanded={expanded}
+      tabIndex={0}
       onClick={onClick}
+      onKeyDown={(event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          onClick();
+        }
+      }}
       className={`${styles.arrow} ${expanded ? styles.arrowExpanded : ""} ${arrowStyle === "single" ? styles.arrowArrowStyleSingle : styles.arrowArrowStyleDouble}`}
     >
       {/* @todo let implementer define custom arrow object */}
