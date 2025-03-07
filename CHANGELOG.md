@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.0.4
+
+A11y: Keyboard navigation and aria attributes: [#10](https://github.com/gtk-grafana/react-json-tree/pull/10)
+
 ## 0.0.3
 
 Position arrows absolutely to keep labels of the same depth aligned horizontally: [#8](https://github.com/gtk-grafana/react-json-tree/issues/8)
