@@ -1,11 +1,11 @@
-import React, {EventHandler} from "react";
+import React, { EventHandler } from "react";
 import styles from "./styles/JSONArrow.module.scss";
 
 interface Props {
   arrowStyle?: "single" | "double";
   expanded: boolean;
   nodeType: string;
-  onClick: () => void
+  onClick: () => void;
 }
 
 export default function JSONArrow({
@@ -15,12 +15,12 @@ export default function JSONArrow({
 }: Props) {
   return (
     <div
-      role={'button'}
+      role={"button"}
       aria-expanded={expanded}
       tabIndex={0}
       onClick={onClick}
       onKeyDown={(event) => {
-        if (event.key === 'Enter' || event.key === ' ') {
+        if (event.key === "Enter" || event.key === " ") {
           event.preventDefault();
           onClick();
         }

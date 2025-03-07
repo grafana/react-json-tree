@@ -47,11 +47,12 @@ export function JSONTree({
   sortObjectKeys = false,
 }: JSONTreeProps) {
   return (
-    <ul role="tree"
-        aria-multiselectable
-        aria-readonly="true"
-
-        className={styles.tree}>
+    <ul
+      role="tree"
+      aria-multiselectable
+      aria-readonly="true"
+      className={styles.tree}
+    >
       <JSONNode
         keyPath={hideRoot ? [] : keyPath}
         value={postprocessValue(value)}
