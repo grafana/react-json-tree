@@ -3,9 +3,11 @@ import { KeyPath } from "../main.ts";
 
 interface ListItemProps {
   expanded: boolean;
-  noteType: string;
+  expandable: boolean;
+  nodeType: string;
   keyPath: KeyPath;
   className: string;
+  children: React.ReactNode
 }
 
 export const NodeListItem = ({
