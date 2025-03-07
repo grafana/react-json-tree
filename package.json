@@ -48,13 +48,14 @@
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
     "stylelint": "stylelint **/*.css",
-    "stylelint:fix": "stylelint **/*.css --fix",
+    "stylelint:fix": "stylelint **/*.scss --fix",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "test": "vitest",
     "test:ui": "vitest --ui",
     "coverage": "vitest run --coverage",
-    "prepublishOnly": "vitest run && yarn run build"
+    "prepublishOnly": "vitest run && yarn run build",
+    "prepare": "husky"
   },
   "module": "./dist/main.js",
   "files": [
@@ -107,7 +108,8 @@
     "vite-plugin-dts": "4.5.1",
     "vite-plugin-externals": "^0.6.2",
     "vite-plugin-lib-inject-css": "2.2.1",
-    "vitest": "3.0.7"
+    "vitest": "3.0.7",
+    "husky": "^9.1.7"
   },
   "main": "main.js",
   "repository": {
