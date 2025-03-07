@@ -8,7 +8,7 @@ interface ListItemProps {
     className: string
 }
 
-export const ListItem = ({children, expanded, expandable, nodeType, keyPath, className}: ListItemProps) => {
+export const NodeListItem = ({children, expanded, expandable, nodeType, keyPath, className}: ListItemProps) => {
     if(expandable){
         return (
             <li
