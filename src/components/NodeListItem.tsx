@@ -16,6 +16,7 @@ export const NodeListItem = ({
   keyPath,
   className,
 }: ListItemProps) => {
+  // aria-expanded is only wanted on elements that have expanded state, for un-expandable nodes we want to omit the attribute all together
   if (expandable) {
     return (
       <li
