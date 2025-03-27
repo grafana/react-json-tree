@@ -39,15 +39,21 @@ export default defineConfig({
     minify: "terser",
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
-      formats: ["es"],
+      formats: ["es", "cjs"],
+      fileName: (format, entryName) => {
+        const extension = format === 'es' ? 'js' : 'cjs';
+        return `${entryName}.${extension}`;
+      },
     },
     rollupOptions: {
       external: ["react", "react/jsx-runtime"],
       input: "src/main.ts",
       output: {
-        manualChunks: undefined,
-        entryFileNames: "[name].js",
-        assetFileNames: "assets/[name][extname]",
+        exports: 'named',
+        // preserveModules: true,
+        // manualChunks: undefined,
+        // entryFileNames: "[name].[format]",
+        // assetFileNames: "assets/[name][extname]",
         globals: {
           react: "React",
           "react-dom": "ReactDom",

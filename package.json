@@ -1,6 +1,6 @@
 {
   "name": "@gtk-grafana/react-json-tree",
-  "version": "0.0.5",
+  "version": "0.0.13",
   "description": "React JSON Viewer Component, Extracted from redux-devtools",
   "keywords": [
     "react",
@@ -56,6 +56,10 @@
     "coverage": "vitest run --coverage",
     "prepublishOnly": "vitest run && yarn run build",
     "prepare": "husky"
+  },
+  "exports": {
+    "import": "./dist/main.js",
+    "require": "./dist/main.cjs"
   },
   "module": "./dist/main.js",
   "files": [
