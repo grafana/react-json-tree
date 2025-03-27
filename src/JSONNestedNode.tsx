@@ -105,6 +105,7 @@ export default function JSONNestedNode(props: Props) {
     expandable,
     getItemString,
     hideRoot,
+    hideRootExpand,
     isCircular,
     keyPath,
     labelRenderer,
@@ -114,14 +115,18 @@ export default function JSONNestedNode(props: Props) {
     shouldExpandNodeInitially,
   } = props;
 
+  const isRoot = keyPath[0] === "root"
+  const showExpand = hideRootExpand ? expandable && !isRoot && hideRootExpand : expandable
+  const isNodeExpandable = expandable && showExpand
+
   const [expanded, setExpanded] = useState<boolean>(
     // calculate individual node expansion if necessary
     isCircular ? false : shouldExpandNodeInitially(keyPath, data, level),
   );
 
   const handleClick = useCallback(() => {
-    if (expandable) setExpanded(!expanded);
-  }, [expandable, expanded]);
+    if (isNodeExpandable) setExpanded(!expanded);
+  }, [isNodeExpandable, expanded]);
 
   const renderedChildren =
     expanded || (hideRoot && level === 0)
@@ -142,11 +147,11 @@ export default function JSONNestedNode(props: Props) {
     createItemString(data, collectionLimit),
     keyPath,
   );
-  const stylingArgs = [keyPath, nodeType, expanded, expandable] as const;
+  const stylingArgs = [keyPath, nodeType, expanded, isNodeExpandable] as const;
 
   return hideRoot ? (
     <NodeListItem
-      expandable={expandable}
+      expandable={isNodeExpandable}
       expanded={expanded}
       nodeType={nodeType}
       keyPath={keyPath}
@@ -156,14 +161,14 @@ export default function JSONNestedNode(props: Props) {
     </NodeListItem>
   ) : (
     <NodeListItem
-      expandable={expandable}
+      expandable={isNodeExpandable}
       expanded={expanded}
       nodeType={nodeType}
       keyPath={keyPath}
-      className={`${styles.nestedNode}  ${expanded ? styles.nestedNodeExpanded : ""} ${expandable ? styles.nestedNodeExpandable : ""}`}
+      className={`${styles.nestedNode}  ${expanded ? styles.nestedNodeExpanded : ""} ${isNodeExpandable ? styles.nestedNodeExpandable : ""}`}
     >
       <span className={styles.nestedNodeLabelWrap}>
-        {expandable && (
+        {showExpand && (
           <JSONArrow
             nodeType={nodeType}
             expanded={expanded}
@@ -173,7 +178,7 @@ export default function JSONNestedNode(props: Props) {
         <span
           data-nodetype={nodeType}
           data-keypath={keyPath[0]}
-          className={`${styles.nestedNodeLabel} ${expanded ? styles.nestedNodeLabelExpanded : ""} ${expandable ? styles.nestedNodeLabelExpandable : ""}`}
+          className={`${styles.nestedNodeLabel} ${expanded ? styles.nestedNodeLabelExpanded : ""} ${isNodeExpandable ? styles.nestedNodeLabelExpandable : ""}`}
           onClick={handleClick}
         >
           {labelRenderer(...stylingArgs)}
