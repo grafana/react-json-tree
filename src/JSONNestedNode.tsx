@@ -115,9 +115,11 @@ export default function JSONNestedNode(props: Props) {
     shouldExpandNodeInitially,
   } = props;
 
-  const isRoot = keyPath[0] === "root"
-  const showExpand = hideRootExpand ? expandable && !isRoot && hideRootExpand : expandable
-  const isNodeExpandable = expandable && showExpand
+  const isRoot = keyPath[0] === "root";
+  const showExpand = hideRootExpand
+    ? expandable && !isRoot && hideRootExpand
+    : expandable;
+  const isNodeExpandable = expandable && showExpand;
 
   const [expanded, setExpanded] = useState<boolean>(
     // calculate individual node expansion if necessary
