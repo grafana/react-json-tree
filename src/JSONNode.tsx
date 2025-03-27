@@ -16,6 +16,7 @@ export default function JSONNode({
   value,
   valueRenderer,
   isCustomNode,
+  valueWrap,
   ...rest
 }: Props) {
   const nodeType = isCustomNode(value) ? "Custom" : objType(value);
@@ -35,6 +36,7 @@ export default function JSONNode({
     ...simpleNodeProps,
     data: value,
     isCustomNode,
+    valueWrap
   };
 
   switch (nodeType) {
@@ -54,7 +56,7 @@ export default function JSONNode({
         <JSONValueNode
           {...simpleNodeProps}
           key={key}
-          valueGetter={(raw: string) => `"${raw}"`}
+          valueGetter={(raw: string) => `${valueWrap}${raw}${valueWrap}`}
         />
       );
     case "Number":
