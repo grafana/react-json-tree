@@ -50,6 +50,7 @@ export interface CommonExternalProps {
   valueRenderer: ValueRenderer;
   shouldExpandNodeInitially: ShouldExpandNodeInitially;
   hideRoot: boolean;
+  hideRootExpand: boolean;
   getItemString: GetItemString;
   postprocessValue: PostprocessValue;
   isCustomNode: IsCustomNode;

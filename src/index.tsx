@@ -40,6 +40,7 @@ export function JSONTree({
   valueRenderer = identity,
   shouldExpandNodeInitially = expandRootNode,
   hideRoot = false,
+  hideRootExpand = false,
   getItemString = defaultItemString,
   postprocessValue = identity,
   isCustomNode = noCustomNode,
@@ -54,6 +55,7 @@ export function JSONTree({
       className={styles.tree}
     >
       <JSONNode
+        hideRootExpand={hideRootExpand}
         keyPath={hideRoot ? [] : keyPath}
         value={postprocessValue(value)}
         isCustomNode={isCustomNode}

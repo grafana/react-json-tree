@@ -94,6 +94,13 @@ const App = () => (
       <JSONTree hideRoot={true} data={data} />
     </div>
     <br />
+
+    <h3>Force root node open</h3>
+    <div style={{ background: "#222" }}>
+      <JSONTree hideRootExpand={true} data={data} />
+    </div>
+    <br />
+
     <h3>Theming Example</h3>
     <p>
       Styles are managed with css variables, override the default values to
