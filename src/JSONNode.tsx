@@ -36,7 +36,7 @@ export default function JSONNode({
     ...simpleNodeProps,
     data: value,
     isCustomNode,
-    valueWrap
+    valueWrap,
   };
 
   switch (nodeType) {

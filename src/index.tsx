@@ -55,7 +55,7 @@ export function JSONTree({
   isCustomNode = noCustomNode,
   collectionLimit = 50,
   sortObjectKeys = false,
-  valueWrap = '"'
+  valueWrap = '"',
 }: JSONTreeProps) {
   return (
     <ul
