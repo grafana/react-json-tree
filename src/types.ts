@@ -56,6 +56,7 @@ export interface CommonExternalProps {
   isCustomNode: IsCustomNode;
   collectionLimit: number;
   sortObjectKeys: SortObjectKeys;
+  valueWrap: string;
 }
 
 export interface CommonInternalProps extends CommonExternalProps {

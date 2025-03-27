@@ -101,6 +101,12 @@ const App = () => (
     </div>
     <br />
 
+    <h3>No quotations around string values</h3>
+    <div style={{ background: "#222" }}>
+      <JSONTree valueWrap={""} data={data} />
+    </div>
+    <br />
+
     <h3>Theming Example</h3>
     <p>
       Styles are managed with css variables, override the default values to
