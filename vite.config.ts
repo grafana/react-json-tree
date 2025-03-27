@@ -41,7 +41,7 @@ export default defineConfig({
       entry: resolve(__dirname, "src/index.ts"),
       formats: ["es", "cjs"],
       fileName: (format, entryName) => {
-        const extension = format === 'es' ? 'js' : 'cjs';
+        const extension = format === "es" ? "js" : "cjs";
         return `${entryName}.${extension}`;
       },
     },
@@ -49,7 +49,7 @@ export default defineConfig({
       external: ["react", "react/jsx-runtime"],
       input: "src/main.ts",
       output: {
-        exports: 'named',
+        exports: "named",
         // preserveModules: true,
         // manualChunks: undefined,
         // entryFileNames: "[name].[format]",
