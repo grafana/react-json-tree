@@ -32,7 +32,7 @@ export default function JSONValueNode({
 }: Props) {
   return (
     <li
-      className={`${styles.valueNode} valueNode--${nodeType} valueNode--${keyPath}`}
+      className={`${styles.valueNode} valueNode--${nodeType} valueNode--${keyPath[0]}`}
     >
       <span data-testid={"value-node-label"} className={styles.valueNodeLabel}>
         {labelRenderer(keyPath, nodeType, false, false)}
