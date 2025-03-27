@@ -28,8 +28,17 @@ const defaultItemString: GetItemString = (
     {itemType} {itemString}
   </span>
 );
-const defaultLabelRenderer: LabelRenderer = ([label]) => (
-  <span className={styles.defaultLabelWrap}>{label}:</span>
+const defaultLabelRenderer: LabelRenderer = (
+  [label],
+  nodeType,
+  expanded,
+  expandable,
+) => (
+  <span
+    className={`${styles.defaultLabelWrap} ${expandable ? styles.defaultLabelWrapExpandable : ""}`}
+  >
+    {label}:
+  </span>
 );
 const noCustomNode: IsCustomNode = () => false;
 

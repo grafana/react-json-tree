@@ -1,10 +1,12 @@
 .nestedNode {
   display: var(--json-tree-inline-flex);
   position: relative;
+  cursor: default;
 
   &--expandable {
     align-items: var(--json-tree-align-items);
     display: var(--json-tree-block);
+    cursor: pointer;
   }
 
   &--expanded {
@@ -23,7 +25,6 @@
 .nestedNodeLabelWrap {
   display: var(--json-tree-block);
   align-items: var(--json-tree-align-items);
-  cursor: pointer;
 }
 
 .nestedNodeItemString {
@@ -41,10 +42,12 @@
   display: var(--json-tree-inline-flex);
   align-items: var(--json-tree-align-items);
   margin-right: var(--json-tree-nested-node-label-margin);
+  cursor: default;
 
   &--expandable {
     display: var(--json-tree-inline-flex);
     align-items: var(--json-tree-align-items);
+    cursor: pointer;
   }
 
   &--expanded {
@@ -54,12 +57,14 @@
 
 .rootNode {
   display: var(--json-tree-inline-flex);
+  cursor: default;
 }
 
 .rootNodeExpanded {
 }
 
 .rootNodeExpandable {
+  cursor: pointer;
 }
 
 .rootNodeChildren {

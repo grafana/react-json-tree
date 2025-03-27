@@ -13,4 +13,9 @@
   display: var(--json-tree-inline-flex);
   margin-right: var(--json-tree-default-label-wrap-margin-right);
   color: var(--json-tree-label-color);
+  cursor: default;
+
+  &--expandable {
+    cursor: pointer;
+  }
 }
