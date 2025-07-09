@@ -23,13 +23,13 @@ export default function ItemRange(props: Props) {
 
   return expanded ? (
     <div
-      className={`${styles.itemRange} ${expanded ? styles.itemRangeExpanded : ""}`}
+      className={`${styles.itemRange}`}
     >
       {renderChildNodes(props, from, to)}
     </div>
   ) : (
     <div
-      className={`${styles.itemRange} ${expanded ? styles.itemRangeExpanded : ""}`}
+      className={`${styles.itemRange}`}
     >
       <JSONArrow
         nodeType={nodeType}
