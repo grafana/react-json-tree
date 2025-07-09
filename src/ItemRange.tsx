@@ -22,15 +22,11 @@ export default function ItemRange(props: Props) {
   }, [expanded]);
 
   return expanded ? (
-    <div
-      className={`${styles.itemRange}`}
-    >
+    <div className={`${styles.itemRange}`}>
       {renderChildNodes(props, from, to)}
     </div>
   ) : (
-    <div
-      className={`${styles.itemRange}`}
-    >
+    <div className={`${styles.itemRange}`}>
       <JSONArrow
         nodeType={nodeType}
         expanded={false}
