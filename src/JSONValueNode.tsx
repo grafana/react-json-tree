@@ -9,7 +9,6 @@ import type {
 } from "./types";
 import styles from "./styles/JSONValueNode.module.scss";
 
-
 /**
  * Renders simple values (eg. strings, numbers, booleans, etc)
  */

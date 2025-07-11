@@ -90,34 +90,29 @@ const App = () => (
   <div style={{ background: "#fff" }}>
     <h3>Basic Example</h3>
     <div style={{ background: "#222" }}>
-      <JSONTree
-        data={data}
-      />
+      <JSONTree data={data} />
     </div>
     <br />
 
     <h3>Scroll to on render example</h3>
     <div style={{ background: "#222" }}>
       <JSONTree
-          data={data}
-          shouldExpandNodeInitially={(keyPath: KeyPath) => {
-              // Caller needs to ensure that parent node of scrollToPath is expanded for scrollTo to work on initial render, otherwise it will scroll to when the parent node/collection is expanded
-              return !!areKeyPathsEqual(
-                  keyPath,
-                  hugeArrayKeyPath.slice(keyPath.length * -1),
-              );
-          }}
-          scrollToPath={hugeArrayKeyPath}
+        data={data}
+        shouldExpandNodeInitially={(keyPath: KeyPath) => {
+          // Caller needs to ensure that parent node of scrollToPath is expanded for scrollTo to work on initial render, otherwise it will scroll to when the parent node/collection is expanded
+          return !!areKeyPathsEqual(
+            keyPath,
+            hugeArrayKeyPath.slice(keyPath.length * -1),
+          );
+        }}
+        scrollToPath={hugeArrayKeyPath}
       />
     </div>
     <br />
 
     <h3>Scroll to on open example</h3>
     <div style={{ background: "#222" }}>
-      <JSONTree
-          data={data}
-          scrollToPath={hugeArrayKeyPath}
-      />
+      <JSONTree data={data} scrollToPath={hugeArrayKeyPath} />
     </div>
     <br />
 

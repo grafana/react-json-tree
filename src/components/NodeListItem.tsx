@@ -1,6 +1,6 @@
 import React from "react";
 import { KeyPath } from "../main.ts";
-import {ScrollToPath} from "../types.ts";
+import { ScrollToPath } from "../types.ts";
 
 interface ListItemProps {
   expanded: boolean;
