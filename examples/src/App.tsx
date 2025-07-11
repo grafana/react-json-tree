@@ -1,6 +1,7 @@
 import React from "react";
 import { Map } from "immutable";
-import { JSONTree, KeyPath } from "react-json-tree";
+import { JSONTree, KeyPath, areKeyPathsEqual } from "react-json-tree";
+import {ScrollToPath} from "../../src/types";
 
 const getItemString = (type: string) => (
   <span>
@@ -71,6 +72,7 @@ const data: Record<string, any> = {
     { objectKey: "value2" },
   ]),
   hugeArray: Array.from({ length: 10000 }).map((_, i) => `item #${i}`),
+  hugeObject: Object.create(Array.from({ length: 10000 }).map((_, i) => `item #${i}`)),
   customProfile: {
     avatar: new Custom("placehold.it/50x50"),
     name: new Custom("Name"),
@@ -79,13 +81,16 @@ const data: Record<string, any> = {
 };
 
 // Should not throw error
-const key: KeyPath = [];
+const hugeArrayKeyPath: ScrollToPath = [101, 'hugeArray', 'root']
 
 const App = () => (
   <div style={{ background: "#fff" }}>
     <h3>Basic Example</h3>
     <div style={{ background: "#222" }}>
-      <JSONTree data={data} />
+      <JSONTree data={data} shouldExpandNodeInitially={(keyPath: KeyPath, _, level) => {
+          // Caller needs to ensure that parent node of scrollToPath is expanded for scrollTo to work on initial render, otherwise it will scroll to when the parent node/collection is expanded
+          return !!areKeyPathsEqual(keyPath, hugeArrayKeyPath.slice(keyPath.length * -1));
+      }} scrollToPath={hugeArrayKeyPath} />
     </div>
     <br />
 
@@ -205,6 +210,19 @@ const App = () => (
         }))}
       />
     </div>
+
+      <p>Scroll to index</p>
+      <div>
+          <JSONTree
+              keyPath={['rootsy']}
+              collectionLimit={100}
+              // scrollToPath={[101, 'rootsy']}
+              data={Array.from({ length: 10000 }).map((_, i) => ({
+                  name: `item #${i}`,
+                  value: i,
+              }))}
+          />
+      </div>
   </div>
 );
 

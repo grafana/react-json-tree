@@ -10,6 +10,7 @@ import type {
   JSONTreeProps,
   LabelRenderer,
   ShouldExpandNodeInitially,
+    KeyPath,
 } from "./types.js";
 
 import styles from "./styles/tree.module.scss";
@@ -55,6 +56,7 @@ export function JSONTree({
   isCustomNode = noCustomNode,
   collectionLimit = 50,
   sortObjectKeys = false,
+  scrollToPath,
   valueWrap = '"',
 }: JSONTreeProps) {
   return (
@@ -65,6 +67,7 @@ export function JSONTree({
       className={styles.tree}
     >
       <JSONNode
+        scrollToPath={scrollToPath}
         hideRootExpand={hideRootExpand}
         keyPath={hideRoot ? [] : keyPath}
         value={postprocessValue(value)}
@@ -81,6 +84,18 @@ export function JSONTree({
       />
     </ul>
   );
+}
+
+export const areKeyPathsEqual = (a: KeyPath, b: KeyPath) => {
+  if (!a.length || a.length !== b.length) {
+    return false
+  }
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] !== b[i]) {
+      return false
+    }
+  }
+  return true
 }
 
 export type {

@@ -17,23 +17,25 @@ export default function JSONNode({
   valueRenderer,
   isCustomNode,
   valueWrap,
+  scrollToPath,
   ...rest
 }: Props) {
   const nodeType = isCustomNode(value) ? "Custom" : objType(value);
   const key = keyPath[0];
 
   const simpleNodeProps = {
-    getItemString,
     keyPath,
     labelRenderer,
     nodeType,
     value,
     valueRenderer,
+    scrollToPath,
   };
 
   const nestedNodeProps = {
     ...rest,
     ...simpleNodeProps,
+    getItemString,
     data: value,
     isCustomNode,
     valueWrap,
