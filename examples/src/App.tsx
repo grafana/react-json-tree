@@ -232,19 +232,6 @@ const App = () => (
         }))}
       />
     </div>
-
-    <p>Scroll to index</p>
-    <div>
-      <JSONTree
-        keyPath={["rootsy"]}
-        collectionLimit={100}
-        // scrollToPath={[101, 'rootsy']}
-        data={Array.from({ length: 10000 }).map((_, i) => ({
-          name: `item #${i}`,
-          value: i,
-        }))}
-      />
-    </div>
   </div>
 );
 
