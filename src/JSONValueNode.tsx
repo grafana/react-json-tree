@@ -1,12 +1,13 @@
 import type {
   Key,
   KeyPath,
-  LabelRenderer, ScrollToPath,
+  LabelRenderer,
+  ScrollToPath,
   ValueRenderer,
 } from "./types.js";
 import styles from "./styles/JSONValueNode.module.scss";
 import React from "react";
-import {areKeyPathsEqual} from "./index.tsx";
+import { areKeyPathsEqual } from "./index.tsx";
 
 /**
  * Renders simple values (eg. strings, numbers, booleans, etc)
@@ -30,21 +31,25 @@ export default function JSONValueNode({
   valueRenderer,
   value,
   valueGetter = (value) => value,
-  scrollToPath
+  scrollToPath,
 }: Props) {
   const ref = React.useRef<HTMLLIElement>(null);
 
   React.useEffect(() => {
-    if(ref.current){
-      ref.current.scrollIntoView({behavior: 'smooth'})
+    if (ref.current) {
+      ref.current.scrollIntoView({ behavior: "smooth" });
     }
-  }, [])
+  }, []);
 
-  const optionalProps = scrollToPath !== undefined && areKeyPathsEqual(scrollToPath, keyPath) ? {ref} : {}
+  const optionalProps =
+    scrollToPath !== undefined && areKeyPathsEqual(scrollToPath, keyPath)
+      ? { ref }
+      : {};
 
   return (
     <li
-      className={`${styles.valueNode} valueNode--${nodeType} valueNode--${keyPath[0]}`} {...optionalProps}
+      className={`${styles.valueNode} valueNode--${nodeType} valueNode--${keyPath[0]}`}
+      {...optionalProps}
     >
       <span data-testid={"value-node-label"} className={styles.valueNodeLabel}>
         {labelRenderer(keyPath, nodeType, false, false)}

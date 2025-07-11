@@ -10,7 +10,7 @@ import type {
   JSONTreeProps,
   LabelRenderer,
   ShouldExpandNodeInitially,
-    KeyPath,
+  KeyPath,
 } from "./types.js";
 
 import styles from "./styles/tree.module.scss";
@@ -88,15 +88,15 @@ export function JSONTree({
 
 export const areKeyPathsEqual = (a: KeyPath, b: KeyPath) => {
   if (!a.length || a.length !== b.length) {
-    return false
+    return false;
   }
   for (let i = 0; i < a.length; i++) {
     if (a[i] !== b[i]) {
-      return false
+      return false;
     }
   }
-  return true
-}
+  return true;
+};
 
 export type {
   Key,

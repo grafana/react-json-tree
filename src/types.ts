@@ -11,7 +11,7 @@ export type KeyPath = readonly (string | number)[];
 // This only works for top level arrays and nested arrays that are already under the collection limit
 // Only arrays are supported as we do not iterate through object keys until expanded if they are bigger then the collection limit
 // If the array index is within a nested object that is over the collection limit this won't work either.
-export type ScrollToPath = [number, ...KeyPath]
+export type ScrollToPath = [number, ...KeyPath];
 
 export type GetItemString = (
   nodeType: string,
@@ -61,7 +61,7 @@ export interface CommonExternalProps {
   collectionLimit: number;
   sortObjectKeys: SortObjectKeys;
   valueWrap: string;
-  scrollToPath?: ScrollToPath
+  scrollToPath?: ScrollToPath;
 }
 
 export interface CommonInternalProps extends CommonExternalProps {

@@ -115,7 +115,7 @@ export default function JSONNestedNode(props: Props) {
     nodeType,
     nodeTypeIndicator,
     shouldExpandNodeInitially,
-    scrollToPath
+    scrollToPath,
   } = props;
 
   const isRoot = keyPath[0] === "root";
