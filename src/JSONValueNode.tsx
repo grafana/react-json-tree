@@ -1,13 +1,14 @@
+import React from "react";
+import { areKeyPathsEqual } from "./index";
 import type {
   Key,
   KeyPath,
   LabelRenderer,
   ScrollToPath,
   ValueRenderer,
-} from "./types.js";
+} from "./types";
 import styles from "./styles/JSONValueNode.module.scss";
-import React from "react";
-import { areKeyPathsEqual } from "./index.tsx";
+
 
 /**
  * Renders simple values (eg. strings, numbers, booleans, etc)

@@ -1,5 +1,6 @@
 import React from "react";
 import { KeyPath } from "../main.ts";
+import {ScrollToPath} from "../types.ts";
 
 interface ListItemProps {
   expanded: boolean;
@@ -8,6 +9,7 @@ interface ListItemProps {
   keyPath: KeyPath;
   className: string;
   children: React.ReactNode;
+  scrollToPath?: ScrollToPath;
 }
 
 export const NodeListItem = ({
