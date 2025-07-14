@@ -1,6 +1,7 @@
 # Change Log
 
 ## 0.0.11
+
 Feat: add scrollToPath [#21](https://github.com/gtk-grafana/react-json-tree/pull/21)
 
 ## 0.0.4
