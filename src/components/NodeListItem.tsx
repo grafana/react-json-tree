@@ -1,5 +1,6 @@
 import React from "react";
-import {areKeyPathsEqual, KeyPath} from "../main.ts";
+import { areKeyPathsEqual, KeyPath } from "../main.ts";
+import styles from './NodeListItem.module.scss'
 
 interface ListItemProps {
   expanded: boolean;
@@ -18,20 +19,21 @@ export const NodeListItem = ({
   nodeType,
   keyPath,
   className,
-  scrollToPath
+  scrollToPath,
 }: ListItemProps) => {
   const ref = React.useRef<HTMLLIElement>(null);
+  const isScrollTo = scrollToPath !== undefined && areKeyPathsEqual(scrollToPath, keyPath)
 
   React.useEffect(() => {
     if (ref.current) {
-      ref.current.scrollIntoView({ behavior: "smooth", inline: 'start' });
+      ref.current.scrollIntoView({ behavior: "auto" });
     }
   }, []);
 
   const optionalProps =
-      scrollToPath !== undefined && areKeyPathsEqual(scrollToPath, keyPath)
-          ? { ref, 'data-scrolled': 'true' }
-          : {};
+      isScrollTo
+      ? { ref, "data-scrolled": "true" }
+      : {};
 
   // aria-expanded is only wanted on elements that have expanded state, for un-expandable nodes we want to omit the attribute all together
   if (expandable) {
@@ -42,7 +44,7 @@ export const NodeListItem = ({
         data-nodetype={nodeType}
         data-keypath={keyPath[0]}
         aria-label={keyPath[0]?.toString()}
-        className={className}
+        className={`${className} ${isScrollTo ? styles.nodeListItemScrolled : ''}`}
         {...optionalProps}
       >
         {children}
