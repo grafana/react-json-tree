@@ -71,7 +71,9 @@ const data: Record<string, any> = {
     { objectKey: "value1" },
     { objectKey: "value2" },
   ]),
-  hugeArray: Array.from({ length: 10000 }).map((_, i) => `item #${i}`),
+  hugeArray: {
+    array: Array.from({ length: 10000 }).map((_, i) => `item #${i}`),
+  },
   hugeObject: Object.create(
     Array.from({ length: 10000 }).map((_, i) => `item #${i}`),
   ),
@@ -84,7 +86,7 @@ const data: Record<string, any> = {
 
 // Should not throw error
 const key: KeyPath = [];
-const hugeArrayKeyPath: ScrollToPath = [101, "hugeArray", "root"];
+const hugeArrayKeyPath: ScrollToPath = [101, "array", "hugeArray", "root"];
 
 const App = () => (
   <div style={{ background: "#fff" }}>
@@ -95,7 +97,14 @@ const App = () => (
     <br />
 
     <h3>Scroll to on render example</h3>
-    <div style={{ background: "#222" }}>
+    <div
+      style={{
+        background: "#222",
+        height: "800px",
+        overflow: "auto",
+        scrollBehavior: "smooth",
+      }}
+    >
       <JSONTree
         data={data}
         shouldExpandNodeInitially={(keyPath: KeyPath) => {

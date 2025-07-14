@@ -4,7 +4,6 @@
 // port by Daniele Zannotti http://www.github.com/dzannotti <dzannotti@me.com>
 import JSONNode from "./JSONNode.js";
 import type {
-  CommonExternalProps,
   GetItemString,
   IsCustomNode,
   JSONTreeProps,

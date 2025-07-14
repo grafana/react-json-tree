@@ -51,4 +51,7 @@
   --json-tree-label-value-color: rgb(249, 38, 114);
   --json-tree-arrow-color: var(--json-tree-label-color);
   --json-tree-transition-timing: 150ms;
+
+  /** Scroll behavior **/
+  --json-tree-scroll-margin: 0;
 }

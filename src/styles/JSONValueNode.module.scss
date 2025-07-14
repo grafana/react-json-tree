@@ -14,3 +14,7 @@
   margin-right: var(--json-tree-value-label-margin);
   display: var(--json-tree-inline-flex);
 }
+
+.valueNodeScrolled {
+  scroll-margin: var(--json-tree-scroll-margin);
+}

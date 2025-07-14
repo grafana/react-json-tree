@@ -34,27 +34,26 @@ export default function JSONValueNode({
   scrollToPath,
 }: Props) {
   const ref = React.useRef<HTMLLIElement>(null);
+  const isScrollTo =
+    scrollToPath !== undefined && areKeyPathsEqual(scrollToPath, keyPath);
 
   React.useEffect(() => {
     if (ref.current) {
-      ref.current.scrollIntoView({ behavior: "smooth" });
+      ref.current.scrollIntoView({ behavior: "auto" });
     }
   }, []);
 
-  const optionalProps =
-    scrollToPath !== undefined && areKeyPathsEqual(scrollToPath, keyPath)
-      ? { ref }
-      : {};
+  const optionalProps = isScrollTo ? { ref, "data-scrolled": "true" } : {};
 
   return (
     <li
-      className={`${styles.valueNode} valueNode--${nodeType} valueNode--${keyPath[0]}`}
+      className={`${styles.valueNode} valueNode--${nodeType} valueNode--${keyPath[0]} ${isScrollTo ? styles.valueNodeScrolled : ""}`}
       {...optionalProps}
     >
-      <span data-testid={"value-node-label"} className={styles.valueNodeLabel}>
+      <span className={styles.valueNodeLabel}>
         {labelRenderer(keyPath, nodeType, false, false)}
       </span>
-      <span data-testid={"value-node-value"} className={styles.valueNodeValue}>
+      <span className={styles.valueNodeValue}>
         {valueRenderer(
           valueGetter ? valueGetter(value) : undefined,
           value,

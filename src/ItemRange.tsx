@@ -1,6 +1,11 @@
 import React, { useCallback, useState } from "react";
 import JSONArrow from "./JSONArrow.js";
-import { CircularCache, CommonInternalProps, ScrollToPath } from "./types.js";
+import {
+  CircularCache,
+  CommonInternalProps,
+  KeyPath,
+  ScrollToPath,
+} from "./types.js";
 import styles from "./styles/itemRange.module.scss";
 import { areKeyPathsEqual } from "./index.tsx";
 
@@ -19,8 +24,12 @@ export default function ItemRange(props: Props) {
   const { from, to, renderChildNodes, nodeType, scrollToPath, keyPath } = props;
   let initialExpanded = false;
   if (scrollToPath) {
-    const [index, ...path] = scrollToPath;
-    if (areKeyPathsEqual(path, keyPath) && index > from && index <= to) {
+    const [index] = scrollToPath;
+    if (
+      areKeyPathsEqual(scrollToPath.slice(keyPath.length * -1), keyPath) &&
+      index > from &&
+      index <= to
+    ) {
       initialExpanded = true;
     }
   }
