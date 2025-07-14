@@ -97,7 +97,14 @@ const App = () => (
     <br />
 
     <h3>Scroll to on render example</h3>
-    <div style={{ background: "#222", height: "800px", overflow: "auto", scrollBehavior: "smooth" }}>
+    <div
+      style={{
+        background: "#222",
+        height: "800px",
+        overflow: "auto",
+        scrollBehavior: "smooth",
+      }}
+    >
       <JSONTree
         data={data}
         shouldExpandNodeInitially={(keyPath: KeyPath) => {
