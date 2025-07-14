@@ -45,6 +45,7 @@ function renderChildNodes(
     keyPath,
     postprocessValue,
     sortObjectKeys,
+    scrollToPath,
   } = props;
   const childNodes: React.ReactNode[] = [];
 
@@ -64,6 +65,7 @@ function renderChildNodes(
           from={entry.from}
           to={entry.to}
           renderChildNodes={renderChildNodes}
+          scrollToPath={scrollToPath}
         />,
       );
     } else {
@@ -113,6 +115,7 @@ export default function JSONNestedNode(props: Props) {
     nodeType,
     nodeTypeIndicator,
     shouldExpandNodeInitially,
+    scrollToPath,
   } = props;
 
   const isRoot = keyPath[0] === "root";
@@ -153,6 +156,7 @@ export default function JSONNestedNode(props: Props) {
 
   return hideRoot ? (
     <NodeListItem
+      scrollToPath={scrollToPath}
       expandable={isNodeExpandable}
       expanded={expanded}
       nodeType={nodeType}
@@ -163,6 +167,7 @@ export default function JSONNestedNode(props: Props) {
     </NodeListItem>
   ) : (
     <NodeListItem
+      scrollToPath={scrollToPath}
       expandable={isNodeExpandable}
       expanded={expanded}
       nodeType={nodeType}
