@@ -1,9 +1,9 @@
-import React, { useCallback, useState } from "react";
+import React, {useCallback, useEffect, useState} from "react";
 import JSONArrow from "./JSONArrow.js";
 import getCollectionEntries from "./getCollectionEntries.js";
 import JSONNode from "./JSONNode.js";
 import ItemRange from "./ItemRange.js";
-import type { CircularCache, CommonInternalProps } from "./types.js";
+import {CircularCache, CommonInternalProps, KeyPath, OnExpandEvent, ShouldExpandNode} from "./types.js";
 import styles from "./styles/JSONNestedNode.module.scss";
 import { NodeListItem } from "./components/NodeListItem.tsx";
 
@@ -116,6 +116,7 @@ export default function JSONNestedNode(props: Props) {
     nodeTypeIndicator,
     shouldExpandNodeInitially,
     scrollToPath,
+    onExpand
   } = props;
 
   const isRoot = keyPath[0] === "root";
@@ -129,8 +130,13 @@ export default function JSONNestedNode(props: Props) {
     isCircular ? false : shouldExpandNodeInitially(keyPath, data, level),
   );
 
-  const handleClick = useCallback(() => {
-    if (isNodeExpandable) setExpanded(!expanded);
+  const onNodeExpand = useCallback((e: OnExpandEvent) => {
+    if (isNodeExpandable) {
+      if(onExpand){
+        onExpand(e, keyPath, !expanded)
+      }
+      setExpanded(!expanded);
+    }
   }, [isNodeExpandable, expanded]);
 
   const renderedChildren =
@@ -179,18 +185,18 @@ export default function JSONNestedNode(props: Props) {
           <JSONArrow
             nodeType={nodeType}
             expanded={expanded}
-            onClick={handleClick}
+            onNodeExpand={onNodeExpand}
           />
         )}
         <span
           data-nodetype={nodeType}
           data-keypath={keyPath[0]}
           className={`${styles.nestedNodeLabel} ${expanded ? styles.nestedNodeLabelExpanded : ""} ${isNodeExpandable ? styles.nestedNodeLabelExpandable : ""}`}
-          onClick={handleClick}
+          onClick={onNodeExpand}
         >
           {labelRenderer(...stylingArgs)}
         </span>
-        <span className={styles.nestedNodeItemString} onClick={handleClick}>
+        <span className={styles.nestedNodeItemString} onClick={onNodeExpand}>
           {renderedItemString}
         </span>
       </span>
