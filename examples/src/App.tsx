@@ -133,11 +133,11 @@ const App = () => (
       <JSONTree
         data={data}
         shouldExpandNodeInitially={(keyPath: KeyPath) => {
-            // Caller needs to ensure that parent node of scrollToPath is expanded for scrollTo to work on initial render, otherwise it will scroll to when the parent node/collection is expanded
-            return !!areKeyPathsEqual(
-                keyPath,
-                hugeArrayKeyPath.slice(keyPath.length * -1),
-            );
+          // Caller needs to ensure that parent node of scrollToPath is expanded for scrollTo to work on initial render, otherwise it will scroll to when the parent node/collection is expanded
+          return !!areKeyPathsEqual(
+            keyPath,
+            hugeArrayKeyPath.slice(keyPath.length * -1),
+          );
         }}
         scrollToPath={hugeArrayKeyPath}
       />

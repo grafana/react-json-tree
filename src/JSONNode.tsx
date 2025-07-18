@@ -17,7 +17,6 @@ export default function JSONNode({
   valueRenderer,
   isCustomNode,
   valueWrap,
-
   scrollToPath,
   ...rest
 }: Props) {
