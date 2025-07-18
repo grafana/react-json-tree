@@ -82,7 +82,6 @@ export function JSONTree({
         sortObjectKeys={sortObjectKeys}
         valueWrap={valueWrap}
         onExpand={onExpand}
-
       />
     </ul>
   );
@@ -104,14 +103,17 @@ export const areKeyPathsEqual = (a: KeyPath, b: KeyPath) => {
  * Returns true if source is a child node of target
  * Remember child nodes have a longer key path
  */
-export const doesNodeContainNode = (parent: KeyPath, child: KeyPath): boolean => {
+export const doesNodeContainNode = (
+  parent: KeyPath,
+  child: KeyPath,
+): boolean => {
   for (let i = parent.length - 1; i >= 0; i--) {
     if (parent[parent.length - i] !== child[child.length - i]) {
       return false;
     }
   }
   return true;
-}
+};
 
 export type {
   Key,
@@ -124,5 +126,5 @@ export type {
   IsCustomNode,
   SortObjectKeys,
   CommonExternalProps,
-  ScrollToPath
+  ScrollToPath,
 } from "./types.js";

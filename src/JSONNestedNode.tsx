@@ -1,9 +1,15 @@
-import React, {useCallback, useEffect, useState} from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import JSONArrow from "./JSONArrow.js";
 import getCollectionEntries from "./getCollectionEntries.js";
 import JSONNode from "./JSONNode.js";
 import ItemRange from "./ItemRange.js";
-import {CircularCache, CommonInternalProps, KeyPath, OnExpandEvent, ShouldExpandNode} from "./types.js";
+import {
+  CircularCache,
+  CommonInternalProps,
+  KeyPath,
+  OnExpandEvent,
+  ShouldExpandNode,
+} from "./types.js";
 import styles from "./styles/JSONNestedNode.module.scss";
 import { NodeListItem } from "./components/NodeListItem.tsx";
 
@@ -116,7 +122,7 @@ export default function JSONNestedNode(props: Props) {
     nodeTypeIndicator,
     shouldExpandNodeInitially,
     scrollToPath,
-    onExpand
+    onExpand,
   } = props;
 
   const isRoot = keyPath[0] === "root";
@@ -130,14 +136,17 @@ export default function JSONNestedNode(props: Props) {
     isCircular ? false : shouldExpandNodeInitially(keyPath, data, level),
   );
 
-  const onNodeExpand = useCallback((e: OnExpandEvent) => {
-    if (isNodeExpandable) {
-      if(onExpand){
-        onExpand(e, keyPath, !expanded)
+  const onNodeExpand = useCallback(
+    (e: OnExpandEvent) => {
+      if (isNodeExpandable) {
+        if (onExpand) {
+          onExpand(e, keyPath, !expanded);
+        }
+        setExpanded(!expanded);
       }
-      setExpanded(!expanded);
-    }
-  }, [isNodeExpandable, expanded]);
+    },
+    [isNodeExpandable, expanded],
+  );
 
   const renderedChildren =
     expanded || (hideRoot && level === 0)

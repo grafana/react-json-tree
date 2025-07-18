@@ -41,11 +41,10 @@ export type ShouldExpandNodeInitially = (
 ) => boolean;
 
 export type ShouldExpandNode = (
-    keyPath: KeyPath,
-    data: unknown,
-    level: number,
+  keyPath: KeyPath,
+  data: unknown,
+  level: number,
 ) => boolean | undefined;
-
 
 export type PostprocessValue = (value: unknown) => unknown;
 
@@ -55,7 +54,10 @@ export type SortObjectKeys = ((a: unknown, b: unknown) => number) | boolean;
 
 export type CircularCache = unknown[];
 
-export type OnExpandEvent = React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement> | React.MouseEvent<HTMLSpanElement>
+export type OnExpandEvent =
+  | React.MouseEvent<HTMLDivElement>
+  | React.KeyboardEvent<HTMLDivElement>
+  | React.MouseEvent<HTMLSpanElement>;
 
 export interface CommonExternalProps {
   keyPath: KeyPath;
@@ -72,7 +74,7 @@ export interface CommonExternalProps {
   sortObjectKeys: SortObjectKeys;
   valueWrap: string;
   scrollToPath?: ScrollToPath;
-  onExpand?: (event: OnExpandEvent, keyPath: KeyPath, expand: boolean) => void
+  onExpand?: (event: OnExpandEvent, keyPath: KeyPath, expand: boolean) => void;
 }
 
 export interface CommonInternalProps extends CommonExternalProps {

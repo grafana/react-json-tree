@@ -1,6 +1,6 @@
 import React, { EventHandler } from "react";
 import styles from "./styles/JSONArrow.module.scss";
-import {OnExpandEvent} from "./types.ts";
+import { OnExpandEvent } from "./types.ts";
 
 interface Props {
   arrowStyle?: "single" | "double";
