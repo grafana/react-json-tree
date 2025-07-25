@@ -1,4 +1,4 @@
-# gtk-grafana/react-json-tree
+# grafana/react-json-tree
 
 A zero dependency fork of [redux-devtools](https://github.com/reduxjs/redux-devtools) react-json-tree. 
 
