@@ -1,8 +1,8 @@
-import React, {useCallback, useState} from "react";
+import React, { useCallback, useState } from "react";
 import JSONArrow from "./JSONArrow.js";
-import {CircularCache, CommonInternalProps, ScrollToPath,} from "./types.js";
+import { CircularCache, CommonInternalProps, ScrollToPath } from "./types.js";
 import styles from "./styles/itemRange.module.scss";
-import {areKeyPathsEqual} from "./index.tsx";
+import { areKeyPathsEqual } from "./index.tsx";
 
 interface Props extends CommonInternalProps {
   data: unknown;

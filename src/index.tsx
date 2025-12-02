@@ -17,12 +17,7 @@ import styles from "./styles/tree.module.scss";
 const identity = (value: any) => value;
 const expandRootNode: ShouldExpandNodeInitially = (keyPath, data, level) =>
   level === 0;
-const defaultItemString: GetItemString = (
-  type,
-  data,
-  itemType,
-  itemString,
-) => (
+const defaultItemString: GetItemString = (type, data, itemType, itemString) => (
   <span className={styles.defaultItemString}>
     {itemType} {itemString}
   </span>
