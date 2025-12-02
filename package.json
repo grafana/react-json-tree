@@ -1,14 +1,14 @@
 {
-  "name": "@gtk-grafana/react-json-tree",
-  "version": "0.0.12",
+  "name": "@grafana/react-json-tree",
+  "version": "0.0.13",
   "description": "React JSON Viewer Component, Extracted from redux-devtools",
   "keywords": [
     "react",
     "json viewer"
   ],
-  "homepage": "https://github.com/gtk-grafana/react-json-tree",
+  "homepage": "https://github.com/grafana/react-json-tree",
   "bugs": {
-    "url": "https://github.com/gtk-grafana/react-json-tree/issues"
+    "url": "https://github.com/grafana/react-json-tree/issues"
   },
   "license": "MIT",
   "author": "Galen Kistler <gk@galenkistler.com> (http://github.com/gtk-grafana)",
@@ -89,8 +89,9 @@
     "eslint-plugin-react-hooks": "5.2.0",
     "eslint-plugin-react-refresh": "0.4.19",
     "eslint-plugin-storybook": "0.11.3",
-    "glob": "11.0.1",
+    "glob": "11.1.0",
     "globals": "16.0.0",
+    "husky": "9.1.7",
     "jsdom": "26.0.0",
     "prettier": "3.5.2",
     "react": "18.3.1",
@@ -103,13 +104,12 @@
     "terser": "5.39.0",
     "typescript": "5.7.3",
     "typescript-eslint": "8.25.0",
-    "vite": "6.3.4",
+    "vite": "7.1.11",
     "vite-plugin-css-injected-by-js": "3.5.2",
     "vite-plugin-dts": "4.5.1",
     "vite-plugin-externals": "0.6.2",
     "vite-plugin-lib-inject-css": "2.2.1",
-    "vitest": "3.0.7",
-    "husky": "9.1.7"
+    "vitest": "3.0.7"
   },
   "main": "main.js",
   "repository": {
@@ -119,5 +119,6 @@
   "private": false,
   "directories": {
     "example": "examples"
-  }
+  },
+  "dependencies": {}
 }
