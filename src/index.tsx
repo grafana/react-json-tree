@@ -7,9 +7,9 @@ import type {
   GetItemString,
   IsCustomNode,
   JSONTreeProps,
+  KeyPath,
   LabelRenderer,
   ShouldExpandNodeInitially,
-  KeyPath,
 } from "./types.js";
 
 import styles from "./styles/tree.module.scss";
@@ -22,7 +22,6 @@ const defaultItemString: GetItemString = (
   data,
   itemType,
   itemString,
-  keyPath,
 ) => (
   <span className={styles.defaultItemString}>
     {itemType} {itemString}
