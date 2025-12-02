@@ -1,6 +1,6 @@
 # grafana/react-json-tree
 
-A zero dependency fork of [redux-devtools](https://github.com/reduxjs/redux-devtools) react-json-tree. 
+A zero dependency fork of [redux-devtools](https://github.com/reduxjs/redux-devtools) react-json-tree.
 
 This library preforms well as a simple but customizable JSON view component.
 
@@ -122,13 +122,10 @@ Using the labelRenderer method, you can add interactive elements to the labels:
 
 ![buttons-example.png](img%2Fbuttons-example.png)
 
-
 Or with a bit more customization:
 
 <img width="831" height="717" alt="image" src="https://github.com/user-attachments/assets/2794a661-8b5c-464f-a871-f42374c9b5c8" />
 <img width="843" height="639" alt="image" src="https://github.com/user-attachments/assets/e91c1966-2131-4dbb-92a1-2ecf6f30b57c" />
-
-
 
 #### More Options
 
