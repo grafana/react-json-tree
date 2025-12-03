@@ -4786,6 +4786,11 @@ vfile@^6.0.0:
     "@types/unist" "^3.0.0"
     vfile-message "^4.0.0"
 
+vite-bundle-analyzer@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/vite-bundle-analyzer/-/vite-bundle-analyzer-1.2.3.tgz#5a216544a4fb41d571f8cc0cd78adccfdff2ec96"
+  integrity sha512-8nhwDGHWMKKgg6oegAOpDgTT7/yzTVzeYzLF4y8WBJoYu9gO7h29UpHiQnXD2rAvfQzDy5Wqe/Za5cgqhnxi5g==
+
 vite-node@3.0.7:
   version "3.0.7"
   resolved "https://registry.yarnpkg.com/vite-node/-/vite-node-3.0.7.tgz#f15bc1e0c343ac00115a52c7e110471a5a315c72"
