@@ -1,5 +1,5 @@
 {
-  "name": "@grafana/react-json-tree",
+  "name": "@gtk-grafana/react-json-tree",
   "version": "0.0.13",
   "description": "React JSON Viewer Component, Extracted from redux-devtools",
   "keywords": [
