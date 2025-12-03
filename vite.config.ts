@@ -5,6 +5,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import dts from "vite-plugin-dts";
 import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
+// import { analyzer } from 'vite-bundle-analyzer'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -19,6 +20,7 @@ export default defineConfig({
     }),
     // injects css modules into js bundle
     cssInjectedByJsPlugin(),
+    // analyzer()
   ],
   optimizeDeps: {
     include: ["**/*.scss"], // Include all .scss files
