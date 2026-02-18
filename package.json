@@ -1,6 +1,6 @@
 {
   "name": "@gtk-grafana/react-json-tree",
-  "version": "0.0.13",
+  "version": "1.0.0",
   "description": "React JSON Viewer Component, Extracted from redux-devtools",
   "keywords": [
     "react",
@@ -61,8 +61,8 @@
   ],
   "types": "./dist/src/main.d.ts",
   "peerDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
   },
   "devDependencies": {
     "@eslint/js": "9.21.0",
@@ -78,7 +78,7 @@
     "@vitest/ui": "3.0.7",
     "autoprefixer": "10.4.23",
     "clsx": "2.1.1",
-    "eslint": "9.21.0",
+    "eslint": "9.26.0",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-react-hooks": "5.2.0",
     "eslint-plugin-react-refresh": "0.4.19",
